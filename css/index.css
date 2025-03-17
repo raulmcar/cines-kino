@@ -2,3 +2,9 @@
 * {
     font-family: "Lexend", sans-serif;
 }
+
+.imagen_carrusel{
+    height: 800px;
+    width: 100vh;
+    object-fit: cover;
+}
