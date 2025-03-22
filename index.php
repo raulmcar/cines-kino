@@ -40,7 +40,7 @@
                     <button type="submit" class="btn btn-dark w-100">Entrar</button>
                 </form>
                 <p class="text-center mb-0 mt-1">
-                    <a href="#" class="text-decoration-none">¿No tienes cuenta? Regístrate</a>
+                    <a href="./vista/registrarUsuario.php" class="text-decoration-none">¿No tienes cuenta? Regístrate</a>
                 </p>
             </div>
         </div>

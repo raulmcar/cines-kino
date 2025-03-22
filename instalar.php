@@ -28,7 +28,6 @@
             id_reserva INT PRIMARY KEY AUTO_INCREMENT,
             id_usuario INT(5),
             id_sesion INT(5),
-            id_asiento_sesion(5),
             precio FLOAT(10),
             fecha_reserva VARCHAR(10));");
 
@@ -36,12 +35,6 @@
             id_pago INT PRIMARY KEY AUTO_INCREMENT,
             id_reserva INT(5),
             metodo_pago VARCHAR(30),
-            estado VARCHAR(30));");
-
-        $bdConexion->exec("CREATE TABLE IF NOT EXISTS asiento_sesion(
-            id_asiento_sesion INT PRIMARY KEY AUTO_INCREMENT,
-            id_asiento INT(5),
-            id_sesion INT(5),
             estado VARCHAR(30));");
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS sesion(
@@ -69,17 +62,43 @@
             id_sala INT(5),
             fila INT(2),
             numero INT(2));");
+
+        $bdConexion->exec("CREATE TABLE IF NOT EXISTS reserva_asiento(
+            id_reserva_asiento INT PRIMARY KEY AUTO_INCREMENT,
+            id_reserva INT(5),
+            id_asiento INT(5));");
         
+        $bdConexion->exec("ALTER TABLE reserva ADD FOREIGN KEY(id_usuario)
+            REFERENCES usuario(id_usuario) ON DELETE CASCADE;");
+
+        $bdConexion->exec("ALTER TABLE reserva ADD FOREIGN KEY(id_sesion)
+            REFERENCES sesion(id_sesion) ON DELETE CASCADE;");
+
+        $bdConexion->exec("ALTER TABLE pago ADD FOREIGN KEY(id_reserva)
+            REFERENCES reserva(id_reserva) ON DELETE CASCADE;");
+
+        $bdConexion->exec("ALTER TABLE sesion ADD FOREIGN KEY(id_pelicula)
+            REFERENCES pelicula(id_pelicula) ON DELETE CASCADE;");
+
+        $bdConexion->exec("ALTER TABLE sesion ADD FOREIGN KEY(id_sala)
+            REFERENCES sala(id_sala) ON DELETE CASCADE;");
+
+        $bdConexion->exec("ALTER TABLE asiento ADD FOREIGN KEY(id_sala)
+            REFERENCES sala(id_sala) ON DELETE CASCADE;");
         
+        $bdConexion->exec("ALTER TABLE reserva_asiento(id_reserva)
+            REFERENCES reserva(id_reserva) ON DELETE CASCADE;");
 
+        $bdConexion->exec("ALTER TABLE reserva_asiento(id_asiento)
+            REFERENCES asiento(id_asiento) ON DELETE CASCADE;");
 
-
-
+        $bdConexion->commit();
+        $bdConexion = null;
+        echo "Se ha completado la instalación correctamente.";
     }
-
-
-
-
-
-
+    catch (PDOException $e) {
+        $bdConexion->rollback();
+        $bdConexion = null;
+        echo "Error en la instalacion: " . $e->getMessage();
+    }
 ?>
