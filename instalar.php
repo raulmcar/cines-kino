@@ -18,7 +18,7 @@
             nombre VARCHAR(50),
             apellidos VARCHAR(100),
             email VARCHAR(100),
-            contrasena VARCHAR(50),
+            contrasena VARCHAR(100),
             telefono INT(9),
             dni VARCHAR(9),
             fecha_nacimiento VARCHAR(10),

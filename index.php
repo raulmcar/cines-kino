@@ -28,14 +28,14 @@
             </button>
             <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg" style="width: 250px;">
                 <h6 class="text-center fw-bold">Iniciar Sesión</h6>
-                <form>
+                <form action="./controlador/autenticacion.php" method="post">
                     <div class="mb-2">
                         <label for="email" class="form-label">Correo electrónico</label>
                         <input type="email" class="form-control" name="email">
                     </div>
                     <div class="mb-2">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="contrasena">
                     </div>
                     <button type="submit" class="btn btn-dark w-100">Entrar</button>
                 </form>
@@ -80,6 +80,12 @@
         </button>
     </div>
 
+    <?php
+        if (isset($_SESSION['msg'])) {
+            echo "<script>alert('" . $_SESSION['msg'] . "');</script>";
+            unset($_SESSION['msg']);
+        } 
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

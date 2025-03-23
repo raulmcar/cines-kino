@@ -48,7 +48,7 @@
     </nav>
 
     <div class="container w-100 d-flex justify-content-center rounded mb-5">
-        <form id="formulario" class="col-6 mt-5 p-3 rounded bg-dark-subtle bg-gradient text-dark" action="./controlador/registrarUsuario.php" method="post">
+        <form id="formulario" class="col-6 mt-5 p-3 rounded bg-dark-subtle bg-gradient text-dark" action="../controlador/registrarUsuario.php" method="post">
             <div class="mb-2">
                 <label class="form-label">Nombre</label>
                 <input type="text" name="nombre" class="form-control">
