@@ -19,24 +19,25 @@
     <nav class="navbar bg-black bg-gradient" style="--bs-bg-opacity: .5;">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand" href="../index.php">
-                <img src="../imagenes/logo.png" alt="" width="110" height="80">
+                <img src="../imagenes/logo.png" alt="Bootstrap" width="110" height="80">
             </a>
             <a class="navbar-brand fs-4 fw-semibold mx-auto text-light" href="#">Cartelera</a>
             <a class="navbar-brand fs-4 fw-semibold mx-auto text-light" href="#">Foro</a>
+            <p class="text-light m-2"><?php echo "Bienvenido administrador: " . $_SESSION['usuario']; ?></p>
         <div class="dropdown">
             <button class="btn btn-primary text-white rounded-circle dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-fill fs-3"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg" style="width: 250px;">
                 <h6 class="text-center fw-bold">Iniciar Sesión</h6>
-                <form>
+                <form action="./controlador/autenticacion.php" method="post">
                     <div class="mb-2">
                         <label for="email" class="form-label">Correo electrónico</label>
                         <input type="email" class="form-control" name="email">
                     </div>
                     <div class="mb-2">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="contrasena">
                     </div>
                     <button type="submit" class="btn btn-dark w-100">Entrar</button>
                 </form>
@@ -95,26 +96,6 @@
         </form>
     </div>
 
-    <script>
-        function mostrarContrasena1() {
-            const passwordInput = document.getElementById('contrasena1');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-            } else {
-                passwordInput.type = 'password';
-            }
-        }
-
-        function mostrarContrasena2() {
-            const passwordInput = document.getElementById('contrasena2');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-            } else {
-                passwordInput.type = 'password';
-            }
-        }
-    </script>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

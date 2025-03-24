@@ -10,9 +10,13 @@
 }
 
 body {
-    background-image: url('../imagenes/fondo.jpg'); 
+    background-image: url('../imagenes/prueba.jpeg'); 
     background-size: cover; 
     background-position: center center; 
     background-attachment: fixed; 
     margin: 0; 
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5);
 }
