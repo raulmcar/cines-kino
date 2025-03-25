@@ -50,49 +50,32 @@
     </nav>
 
     <div class="container w-100 d-flex justify-content-center rounded mb-5">
-        <form id="formulario" class="col-6 mt-5 p-3 rounded bg-dark-subtle bg-gradient text-dark" action="../controlador/registrarUsuario.php" method="post">
+        <form id="formulario" class="col-6 mt-5 p-3 rounded bg-dark-subtle bg-gradient text-dark" enctype="multipart/form-data" action="../controlador/registrarPelicula.php" method="post">
             <div class="mb-2">
-                <label class="form-label">Nombre</label>
-                <input type="text" name="nombre" class="form-control">
-            </div>
-            <div class="mb-2">
-                <label class="form-label">Apellidos</label>
-                <input type="text" name="apellidos" class="form-control">
+                <label class="form-label">Nombre de la película</label>
+                <input type="text" name="nombrePeli" class="form-control">
             </div>
             <div class="mb-2">
-                <label class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" name="email">
-                <div id="emailHelp" class="form-text">Tranqui, no vamos a compartir tu correo con nadie.</div>
+                <label class="form-label">Sinopsis</label>
+                <input type="text" name="sinopsis" class="form-control">
             </div>
             <div class="mb-2">
-                <label class="form-label">Contraseña</label>
-                <input type="password" id="contrasena1" name="contrasena" class="form-control">
-                <button type="button" class="form-control btn btn-warning text-dark mt-2" onclick="mostrarContrasena1()">Ver contraseña</button>
+                <label class="form-label">Duración</label>
+                <input type="number"  name="duracion" class="form-control">
             </div>
             <div class="mb-2">
-                <label class="form-label">Repite la contraseña</label>
-                <input type="password" id="contrasena2" name="contrasena2" class="form-control">
-                <button type="button" class="form-control btn btn-warning text-dark mt-2" onclick="mostrarContrasena2()">Ver contraseña</button>
+                <label class="form-label">Género</label>
+                <input type="text" name="genero" class="form-control">
             </div>
             <div class="mb-2">
-                <label class="form-label">Teléfono</label>
-                <input type="number" name="telefono" class="form-control">
+                <label class="form-label">Clasificación</label>
+                <input type="number" name="clasificacion" class="form-control">
             </div>
             <div class="mb-2">
-                <label class="form-label">DNI</label>
-                <input type="text" name="dni" class="form-control">
+                <label class="form-label">Cartel de la película</label>
+                <input type="file" name="cartelPeli" class="form-control">
             </div>
-            <div class="mb-2">
-                <label class="form-label">Fecha de nacimiento</label>
-                <input type="date" name="fecha_nacimiento" class="form-control">
-            </div>
-            <div class="mb-2 pt-3">
-                <input type="submit" name="registrarme" value="Registrarme" class="form-control btn btn-warning text-dark">
-            </div>
-            <div class="text-center mt-4 text-decoration-none">
-                <span>¿Ya tienes cuenta? </span>
-                <a href="./vista/iniciarSesion.php" class="fw-bold text-decoration-none">Inicia sesión</a>
-            </div>
+            <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar polideportivo</button>
         </form>
     </div>
 

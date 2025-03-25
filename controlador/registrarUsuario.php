@@ -23,7 +23,7 @@
                     header('Location: ../index.php');
                     exit();
                 } else {
-                    $_SESSION['msg'] = "Ha habido un error en el registro";
+                    $_SESSION['msg'] = "Ha habido un error en el registro de usuario";
                     header('Location: ../index.php');
                     exit();
                 }
