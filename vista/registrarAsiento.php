@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/index.css?v=1.0">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title></title>
 </head>
 <body>
     <nav class="navbar bg-black bg-gradient" style="--bs-bg-opacity: .5;">
@@ -30,28 +31,40 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg" style="width: 250px;">
                     <a href="../index.php" class="btn btn-dark w-100">Cerrar sesión</a>
+                    <a href="./vista/iniciadoAdmin.php" class="btn btn-dark w-100">Volver al menú admin</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="row d-flex justify-content-center mt-5">
-        <div class="card m-2" style="width: 18rem;">
-        <img src="../imagenes/agregar.jpg" class="card-img-top mt-2" alt="">
-            <div class="card-body text-center">
-                <h5 class="card-title text-center">Añadir peliculas</h5>
-                <p class="card-text text-center">Con esta opción puedes añadir o modificar las peliculas que entren o salgan de la cartelera.</p>
-                <a href="./registrarPelicula.php" class="btn btn-primary">Registrar nueva pelicula</a>
+    <div class="container w-100 d-flex justify-content-center rounded mb-5">
+        <form id="formulario" class="col-6 mt-5 p-3 rounded bg-dark-subtle bg-gradient text-dark" action="../controlador/registrarAsiento.php" method="post">
+            <div class="mb-2">
+            <?php
+                require_once('../modelo/sala.php');
+                $salas = Sala::desplegarSalas();
+
+                if(!empty($salas)){
+                    echo "<select class='form-select mb-3 name='sala'>";
+                    foreach($salas as $sala){
+                        echo "<option value='{$sala['id_sala']}'>{$sala['nombre']}</option>";
+                    }
+                    echo "</select>";
+                } else {
+                    echo "<p>No hay salas registradas</p>";
+                }
+            ?>
             </div>
-        </div>
-        <div class="card m-2" style="width: 18rem;">
-        <img src="../imagenes/agregarSala.jpg" class="card-img-top mt-2" alt="">
-            <div class="card-body text-center">
-                <h5 class="card-title text-center">Añadir salas</h5>
-                <p class="card-text text-center">Con esta opción puedes añadir o modificar las salas del cine.</p>
-                <a href="./registrarSala.php" class="btn btn-primary mt-4">Registrar nueva sala</a>
+            <div class="mb-2">
+                <label class="form-label">Fila</label>
+                <input type="number"  name="fila" class="form-control">
             </div>
-        </div>
+            <div class="mb-2">
+                <label class="form-label">Número</label>
+                <input type="number"  name="numero" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar sala</button>
+        </form>
     </div>
 
     <?php
@@ -60,7 +73,7 @@
             unset($_SESSION['msg']);
         } 
     ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

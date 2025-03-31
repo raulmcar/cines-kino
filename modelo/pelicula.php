@@ -1,7 +1,7 @@
 <?php
     require_once('bd.php');
 
-    class Usuario{
+    class Pelicula{
         private string $titulo;
         private string $sinopsis;
         private int $duracion;
@@ -23,9 +23,9 @@
         public function __destruct(){
             $this->titulo = "";
             $this->sinopsis = "";
-            $this->duracion = "";
+            $this->duracion = 0;
             $this->genero = "";
-            $this->clasificacion = "";
+            $this->clasificacion = 0;
             $this->imagen = "";
         }
 

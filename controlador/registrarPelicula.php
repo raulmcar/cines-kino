@@ -23,11 +23,11 @@
 
             if ($pelicula->registrarPelicula()) {
                 $_SESSION['msg'] = "Registro completado";
-                header('Location: ../vista/inciadoAdmin.php');
+                header('Location: ../vista/iniciadoAdmin.php');
                 exit();
             } else {
                 $_SESSION['msg'] = "Ha habido un error en el registro de la pelicula";
-                header('Location: ../vista/inciadoAdmin.php');
+                header('Location: ../vista/iniciadoAdmin.php');
                 exit();
             }
         } else {
