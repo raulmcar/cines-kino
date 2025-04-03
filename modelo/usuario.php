@@ -112,5 +112,28 @@
 
             return false;
         }
+
+        public static function getAllUsers(){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM usuario");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $users = [];
+
+                while ($user = $consulta->fetch()) {
+                    $users[] = $user;
+                }
+
+                return $users;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar los usuarios " . $e->getMessage();
+                return $users = [];
+            }
+        }
     }
 ?>

@@ -89,7 +89,7 @@
                 $pdo = new BD();
                 $bdConexion = $pdo->getPDO();
                 $consulta = $bdConexion->prepare("SELECT * FROM pelicula");
-                $consulta->setFetchMode(PDO:FETCH_ASSOC);
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
                 $consulta->execute();
 
                 $pelis = [];
@@ -106,5 +106,4 @@
             }
         }
     }
-
 ?>

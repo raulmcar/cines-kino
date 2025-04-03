@@ -61,11 +61,21 @@
             </div>
         </div>
         <div class="card m-2" style="width: 18rem;">
-        <img src="../imagenes/agregarAsiento.jpg" class="card-img-top mt-2" alt="">
+        <img src="../imagenes/agregarSesion.jpg" class="card-img-top mt-2" alt="">
             <div class="card-body text-center">
                 <h5 class="card-title text-center">Crear sesión</h5>
                 <p class="card-text text-center">Con esta opción puedes añadir o modificar las sesiones del cine.</p>
                 <a href="./registrarSesion.php" class="btn btn-primary mt-4">Registrar nueva sesión</a>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-5">
+    <div class="card m-2" style="width: 18rem;">
+        <img src="../imagenes/gestionarUsuarios.jpg" class="card-img-top mt-2" alt="">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center">Administrar usuarios</h5>
+                <p class="card-text text-center">Con esta opción puedes modificar datos de los usuarios.</p>
+                <a href="./gestionarUsuarios.php" class="btn btn-primary mt-4">Gestionar usuarios</a>
             </div>
         </div>
     </div>
