@@ -24,28 +24,15 @@
             <a class="navbar-brand fs-4 fw-semibold mx-auto text-light" href="#">Cartelera</a>
             <a class="navbar-brand fs-4 fw-semibold mx-auto text-light" href="#">Foro</a>
             <p class="text-light m-2"><?php echo "Bienvenido administrador: " . $_SESSION['usuario']; ?></p>
-        <div class="dropdown">
-            <button class="btn btn-primary text-white rounded-circle dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-fill fs-3"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg" style="width: 250px;">
-                <h6 class="text-center fw-bold">Iniciar Sesión</h6>
-                <form action="./controlador/autenticacion.php" method="post">
-                    <div class="mb-2">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" name="email">
-                    </div>
-                    <div class="mb-2">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="contrasena">
-                    </div>
-                    <button type="submit" class="btn btn-dark w-100">Entrar</button>
-                </form>
-                <p class="text-center mb-0 mt-1">
-                    <a href="./vista/registrarUsuario.php" class="text-decoration-none">¿No tienes cuenta? Regístrate</a>
-                </p>
+            <div class="dropdown">
+                <button class="btn btn-primary text-white rounded-circle dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-fill fs-3"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg" style="width: 250px;">
+                    <a href="../index.php" class="btn btn-dark w-100">Cerrar sesión</a>
+                    <a href="./iniciadoAdmin.php" class="btn btn-dark w-100">Volver al menú admin</a>
+                </div>
             </div>
-        </div>
         </div>
     </nav>
 

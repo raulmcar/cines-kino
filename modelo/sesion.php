@@ -1,36 +1,36 @@
 <?php
     require_once('bd.php');
 
-    class Asiento{
+    class Sesion{
+        private int $idPelicula;
         private int $idSala;
-        private int $fila;
-        private int $numero;
+        private string $fechaSesion;
 
-        public function __construct(int $idSala, int $fila, int $numero){
+        public function __construct(int $idPelicula, int $idSala, string $fechaSesion){
+            $this->idPelicula = $idPelicula;
             $this->idSala = $idSala;
-            $this->fila = $fila;
-            $this->numero = $numero;
+            $this->fechaSesion = $fechaSesion;
         }
 
         public function __destruct(){
+            $this->idPelicula = 0;
             $this->idSala = 0;
-            $this->fila = 0;
-            $this->numero = 0;
+            $this->fechaSesion = "";
         }
 
-        public function registrarAsiento(){
+        public function registrarSesion(){
             $registro = false;
 
             try{
                 $pdo = new BD();
                 $bdConexion = $pdo->getPDO();
 
-                $consulta = $bdConexion->prepare("INSERT INTO asiento(id_sala, fila, numero)
+                $consulta = $bdConexion->prepare("INSERT INTO sesion(id_pelicula, id_sala, fecha_hora)
                     VALUES (?,?,?)");
-
-                $consulta->bindParam(1, $this->idSala);
-                $consulta->bindParam(2, $this->fila);
-                $consulta->bindParam(3, $this->numero);
+                
+                $consulta->bindParam(1, $this->idPelicula);
+                $consulta->bindParam(2, $this->idSala);
+                $consulta->bindParam(3, $this->fechaSesion);
 
                 $consulta->execute();
                 $registro = true;
@@ -43,10 +43,5 @@
             }
         }
     }
-
-
-
-
-
 
 ?>

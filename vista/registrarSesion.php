@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="../css/index.css?v=1.0">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title></title>
 </head>
 <body>
     <nav class="navbar bg-black bg-gradient" style="--bs-bg-opacity: .5;">
@@ -42,6 +41,21 @@
             <div class="mb-2">
             <?php
                 require_once('../modelo/sala.php');
+                $pelis = Pelicula::desplegarPeliculas();
+
+                if(!empty($pelis)){
+                    echo "<select class='form-select mb-3' name='peli'>";
+                    foreach($pelis as $peli){
+                        echo "<option value='{$peli['id_pelicula']}'>{$peli['titulo']}</option>";
+                    }
+                    echo "</select>";
+                } else {
+                    echo "<p>No hay pelis registradas</p>";
+                }
+            ?>
+            </div>
+            <?php
+                require_once('../modelo/sala.php');
                 $salas = Sala::desplegarSalas();
 
                 if(!empty($salas)){
@@ -56,24 +70,14 @@
             ?>
             </div>
             <div class="mb-2">
-                <label class="form-label">Fila</label>
-                <input type="number"  name="fila" class="form-control">
+                <label class="form-label">Fecha de la sesión</label>
+                <input type="date"  name="fechaSesion" class="form-control">
             </div>
-            <div class="mb-2">
-                <label class="form-label">Número</label>
-                <input type="number"  name="numero" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar asiento</button>
+            <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar sesion</button>
         </form>
     </div>
 
-    <?php
-        if (isset($_SESSION['msg'])) {
-            echo "<script>alert('" . $_SESSION['msg'] . "');</script>";
-            unset($_SESSION['msg']);
-        } 
-    ?>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

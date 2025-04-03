@@ -52,6 +52,22 @@
                 <a href="./registrarSala.php" class="btn btn-primary mt-4">Registrar nueva sala</a>
             </div>
         </div>
+        <div class="card m-2" style="width: 18rem;">
+        <img src="../imagenes/agregarAsiento.jpg" class="card-img-top mt-2" alt="">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center">Añadir asientos</h5>
+                <p class="card-text text-center">Con esta opción puedes añadir o modificar los asientos de las salas de cine.</p>
+                <a href="./registrarAsiento.php" class="btn btn-primary mt-4">Registrar nuevo asiento</a>
+            </div>
+        </div>
+        <div class="card m-2" style="width: 18rem;">
+        <img src="../imagenes/agregarAsiento.jpg" class="card-img-top mt-2" alt="">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center">Crear sesión</h5>
+                <p class="card-text text-center">Con esta opción puedes añadir o modificar las sesiones del cine.</p>
+                <a href="./registrarSesion.php" class="btn btn-primary mt-4">Registrar nueva sesión</a>
+            </div>
+        </div>
     </div>
 
     <?php

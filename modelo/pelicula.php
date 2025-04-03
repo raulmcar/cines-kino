@@ -43,7 +43,7 @@
                 $consulta->bindParam(2, $this->sinopsis);
                 $consulta->bindParam(3, $this->duracion);
                 $consulta->bindParam(4, $this->genero);
-                $consulta->bindParam(5, $this->clasificion);
+                $consulta->bindParam(5, $this->clasificacion);
                 $consulta->bindParam(6, $this->imagen);
 
                 $consulta->execute();
@@ -81,6 +81,29 @@
             }
 
             return $existe;
+        }
+
+        public static function desplegarPeliculas(){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM pelicula");
+                $consulta->setFetchMode(PDO:FETCH_ASSOC);
+                $consulta->execute();
+
+                $pelis = [];
+
+                while ($peli = $consulta->fetch()){
+                    $pelis[] = $peli;
+                }
+
+                return $pelis;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar las peliculas " . $e->getMessage();
+                return $pelis = [];
+            }
         }
     }
 

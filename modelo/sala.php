@@ -6,7 +6,7 @@
         private int $capacidad;
         private ?array $asientos;
 
-        public function __construct(string $nombre, int $capcadidad){
+        public function __construct(string $nombre, int $capacidad){
             $this->nombre = $nombre;
             $this->capacidad = $capacidad;
             $this->asientos = [];
