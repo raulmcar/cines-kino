@@ -44,6 +44,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Apellidos</th>
                     <th>Email</th>
                     <th>Rol</th>
                     <th>Acciones</th>
@@ -55,16 +56,6 @@
                     <td>Juan Pérez</td>
                     <td>juan@example.com</td>
                     <td>Administrador</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>María López</td>
-                    <td>maria@example.com</td>
-                    <td>Usuario</td>
                     <td>
                         <button class="btn btn-warning btn-sm">Editar</button>
                         <button class="btn btn-danger btn-sm">Eliminar</button>
