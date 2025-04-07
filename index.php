@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar bg-black bg-gradient" style="--bs-bg-opacity: .5;">
+    <nav class="navbar bg-black bg-gradient">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand" href="index.php">
                 <img src="./imagenes/logo.png" alt="Bootstrap" width="110" height="80">
@@ -48,38 +48,27 @@
         </div>
     </nav>
 
-    <!--<div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="./imagenes/estrenos semanales.png" class="d-block w-100 imagen_carrusel" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="./imagenes/snacks.png" class="d-block w-100 imagen_carrusel" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="./imagenes/cinesalas.png" class="d-block w-100 imagen_carrusel" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>-->
+    <?php
+        require_once('./modelo/pelicula.php');
+        $pelis = Pelicula::desplegarPeliculas();
+
+        if(!empty($pelis)){
+            echo "<div class='container py-5'>";
+            echo "<div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4'>";
+            foreach($pelis as $peli){
+                echo "<div class='col'>";
+                echo "<div class='card h-100 shadow-sm' style='position: relative; width: 250px; height: 400px; background-color: transparent;'>";
+                echo "<img src='./imagenes/carteles/" . $peli['titulo'] . ".jpg' class='card-img-top' alt='Nombre de la película'>";
+                echo "<a href='#' class='btn btn-dark' style='position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 90%; opacity: 0.9;'>Ver sesiones</a>";
+                echo "</div>";
+                echo "</div>";
+            }
+            echo "</div>";
+            echo "</div>";
+        } else {
+            echo "<p class='text-warning'>No hay pelculas registradas</p>";
+        }
+    ?>
 
     <?php
         if (isset($_SESSION['msg'])) {
