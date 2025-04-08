@@ -28,21 +28,32 @@
                 <i class="bi bi-person-fill fs-3"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg" style="width: 250px;">
-                <h6 class="text-center fw-bold">Iniciar Sesión</h6>
-                <form action="./controlador/autenticacion.php" method="post">
-                    <div class="mb-2">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" name="email">
-                    </div>
-                    <div class="mb-2">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="contrasena">
-                    </div>
-                    <button type="submit" class="btn btn-dark w-100">Entrar</button>
-                </form>
-                <p class="text-center mb-0 mt-1">
-                    <a href="./vista/registrarUsuario.php" class="text-decoration-none">¿No tienes cuenta? Regístrate</a>
-                </p>
+                <?php
+                    if (isset($_SESSION['user'])){
+                        if($_SESSION['user']['tipo_usuario'] == 'admin'){
+                            echo "<a href='./controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
+                            echo "<a href='./vista/iniciadoAdmin.php' class='btn btn-dark w-100'>Zona administrador</a>";
+                        } else {
+                            echo "<a href='./controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
+                        }
+                    } else {
+                        echo "<h6 class='text-center fw-bold'>Iniciar Sesión</h6>
+                                <form action='./controlador/autenticacion.php' method='post'>
+                                    <div class='mb-2'>
+                                        <label for='email' class='form-label'>Correo electrónico</label>
+                                        <input type='email' class='form-control' name='email'>
+                                    </div>
+                                    <div class='mb-2'>
+                                        <label for='password' class='form-label'>Contraseña</label>
+                                        <input type='password' class='form-control' name='contrasena'>
+                                    </div>
+                                    <button type='submit' class='btn btn-dark w-100'>Entrar</button>
+                                </form>
+                                <p class='text-center mb-0 mt-1'>
+                                    <a href='./vista/registrarUsuario.php' class='text-decoration-none'>¿No tienes cuenta? Regístrate</a>
+                                </p>";
+                    }
+                ?>
             </div>
         </div>
         </div>
@@ -57,8 +68,10 @@
             echo "<div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4'>";
             foreach($pelis as $peli){
                 echo "<div class='col'>";
-                echo "<div class='card h-100 shadow-sm' style='position: relative; width: 250px; height: 400px; background-color: transparent;'>";
-                echo "<img src='./imagenes/carteles/" . $peli['titulo'] . ".jpg' class='card-img-top' alt='Nombre de la película'>";
+                echo "<div class='card h-100 shadow-sm border border-0 border-rounded'>";
+                echo "<div style='height: 420px; overflow: hidden;'>";
+                echo "<img src='./imagenes/carteles/" . $peli['titulo'] . ".jpg' class='card-img-top rounded' style='object-fit: cover; height:420px;'>";
+                echo "</div>";
                 echo "<a href='#' class='btn btn-dark' style='position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 90%; opacity: 0.9;'>Ver sesiones</a>";
                 echo "</div>";
                 echo "</div>";

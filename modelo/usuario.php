@@ -102,7 +102,8 @@
                 $usuario = $consulta->fetch();
 
                 if ($usuario && password_verify($password, $usuario['contrasena'])){
-                    return $usuario;
+                    $_SESSION['user'] = $usuario;
+                    return $_SESSION['user'];
                 } 
 
             }

@@ -7,16 +7,14 @@
 
             $usuario = Usuario::iniciarSesion($_POST['email'], $_POST['contrasena']);
 
-            if ($usuario){
-                if ($usuario['tipo_usuario'] == 'user'){
-                    $_SESSION['usuario'] = $_POST['email'];
+            if ($_SESSION['user']){
+                if ($_SESSION['user']['tipo_usuario'] == 'user'){
                     $_SESSION['msg'] = "Inición sesiada";
-                    header('Location: ../vista/iniciadoUsuario.php');
+                    header('Location: ../index.php');
                     exit();
-                } elseif ($usuario['tipo_usuario'] == 'admin'){
-                    $_SESSION['usuario'] = $_POST['email'];
+                } elseif ($_SESSION['user']['tipo_usuario'] == 'admin'){
                     $_SESSION['msg'] = "Inición sesiada";
-                    header('Location: ../vista/iniciadoAdmin.php');
+                    header('Location: ../index.php');
                     exit();
                 }
             } else {
