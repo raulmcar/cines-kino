@@ -44,7 +44,7 @@
                     if (isset($_SESSION['user'])){
                         if($_SESSION['user']['tipo_usuario'] == 'admin'){
                             echo "<a href='./controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
-                            echo "<a href='./vista/iniciadoAdmin.php' class='btn btn-dark w-100'>Zona administrador</a>";
+                            echo "<a href='./iniciadoAdmin.php' class='btn btn-dark w-100'>Zona administrador</a>";
                         } else {
                             echo "<a href='./controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
                         }

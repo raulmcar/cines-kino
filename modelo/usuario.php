@@ -129,11 +129,54 @@
                     $users[] = $user;
                 }
 
-                return $users;
+                $_SESSION['AllUsers'] = $users;
+
+                return $_SESSION['AllUsers'];
             }
             catch(PDOException $e){
                 echo "Error al mostrar los usuarios " . $e->getMessage();
                 return $users = [];
+            }
+        }
+
+        public static function eliminarUsuario(int $id_usuario){
+            $borrado = false;
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("DELETE FROM usuario WHERE id_usuario = '$id_usuario'");
+                $consulta->execute();
+                $borrado = true;
+
+                return $borrado;
+                unset($bdConexion);
+            }
+            catch(PDOException $e){
+                echo "Ha habido un error al eliminar el usuario: " . $e->getMessage();
+                
+                return $borrado;
+            }
+        }
+
+        public static function actualizarUsuario(int $id_usuario, string $newnombre, string $newapellidos, string $newemail, string $newtipousuario){
+            $actualizado = false;
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("UPDATE usuario SET nombre = '$newnombre', apellidos = '$newapellidos',
+                    email = '$newemail', tipo_usuario = '$newtipousuario' WHERE id_usuario = '$id_usuario'");
+                $consulta->execute();
+                $actualizado = true;
+
+                return $actualizado;
+                unset($bdConexion);
+            }
+            catch(PDOException $e){
+                echo "Ha habido un error al actualizar los datos: " . $e->getMessage;
+
+                return $actualizado;
             }
         }
     }

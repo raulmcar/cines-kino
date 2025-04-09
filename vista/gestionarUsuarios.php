@@ -45,10 +45,10 @@
                 <?php
                     if (isset($_SESSION['user'])){
                         if($_SESSION['user']['tipo_usuario'] == 'admin'){
-                            echo "<a href='./controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
-                            echo "<a href='./vista/iniciadoAdmin.php' class='btn btn-dark w-100'>Zona administrador</a>";
+                            echo "<a href='../controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
+                            echo "<a href='../vista/iniciadoAdmin.php' class='btn btn-dark w-100'>Zona administrador</a>";
                         } else {
-                            echo "<a href='./controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
+                            echo "<a href='../controlador/cerrarSesion.php' class='btn btn-dark w-100'>Cerrar sesión</a>";
                         }
                     } else {
                         echo "<h6 class='text-center fw-bold'>Iniciar Sesión</h6>
@@ -72,10 +72,10 @@
         </div>
         </div>
     </nav>
-
-    <div class="container-fluid mt-4 d-flex justify-content-center w-100 mx-auto">
-        <table class="table table-striped table-hover">
-            <thead class="table-dark">
+    
+    <div class='container-fluid mt-4 d-flex justify-content-center w-100 mx-auto'>
+        <table class='table table-striped table-hover'>
+            <thead class='table-dark'>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
@@ -85,21 +85,89 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+        <?php
+        require_once('../modelo/usuario.php');
+        Usuario::getAllUsers();
+
+        if (isset($_SESSION['AllUsers'])){
+            foreach ($_SESSION['AllUsers'] as $user) {
+                $id = $user['id_usuario'];
+                $nombre = $user['nombre'];
+
+                echo "
                 <tr>
-                    <td>1</td>
-                    <td>Juan Pérez</td>
-                    <td>juan@example.com</td>
-                    <td>Administrador</td>
+                    <td>{$id}</td>
+                    <td>{$user['nombre']}</td>
+                    <td>{$user['apellidos']}</td>
+                    <td>{$user['email']}</td>
+                    <td>{$user['tipo_usuario']}</td>
                     <td>
-                        <button class="btn btn-warning btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                        <button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' data-bs-target='#modalEditar{$id}'>Editar</button>
+                        <button type='button' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalEliminar{$id}' data-id='{$id}' data-nombre='{$nombre}'>Eliminar</button>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
 
+                <div class='modal fade' id='modalEditar{$id}' tabindex='-1' aria-hidden='true'>
+                    <div class='modal-dialog'>
+                        <div class='modal-content'>
+                            <form method='POST' action='../controlador/editarUsuario.php'>
+                                <div class='modal-header'>
+                                    <h5 class='modal-title'>Editar Usuario</h5>
+                                    <button type='button' class='btn-close' data-bs-dismiss='modal'></button>
+                                </div>
+                                <div class='modal-body'>
+                                    <input type='hidden' name='id_usuario_hidden' value={$id}>
+                                    <div class='mb-3'>
+                                        <label class='form-label'>Nombre</label>
+                                        <input type='text' class='form-control' name='newnombre' value='{$user['nombre']}' required>
+                                    </div>
+                                    <div class='mb-3'>
+                                        <label class='form-label'>Apellidos</label>
+                                        <input type='text' class='form-control' name='newapellidos' value='{$user['apellidos']}' required>
+                                    </div>
+                                    <div class='mb-3'>
+                                        <label class='form-label'>Email</label>
+                                        <input type='email' class='form-control' name='newemail' value='{$user['email']}' required>
+                                    </div>
+                                    <div class='mb-3'>
+                                        <label class='form-label'>Permisos (user/admin)</label>
+                                        <input type='text' class='form-control' name='newtipo_usuario' value='{$user['tipo_usuario']}' required>
+                                    </div>
+                                </div>
+                                <div class='modal-footer'>
+                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancelar</button>
+                                    <button type='submit' class='btn btn-primary'>Guardar cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='modal fade' id='modalEliminar{$id}' tabindex='-1' aria-hidden='true'>
+                    <div class='modal-dialog'>
+                        <div class='modal-content'>
+                            <form method='POST' action='../controlador/eliminarUsuario.php'>
+                                <div class='modal-header'>
+                                    <h5 class='modal-title'>¿Eliminar usuario?</h5>
+                                    <button type='button' class='btn-close' data-bs-dismiss='modal'></button>
+                                </div>
+                                <div class='modal-body'>
+                                    <input type='hidden' name='id_usuario_hidden' value={$id}>
+                                    <p id='mensajeEliminar{$id}'>¿Estás seguro de que deseas eliminar este usuario?</p>
+                                </div>
+                                <div class='modal-footer'>
+                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancelar</button>
+                                    <button type='submit' class='btn btn-danger'>Eliminar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>";
+            }
+        } else {
+            echo "<p>No hay usuarios registrados</p>";
+        }   
+        ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
