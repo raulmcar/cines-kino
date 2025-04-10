@@ -72,7 +72,18 @@
         </div>
         </div>
     </nav>
-    
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-white"><i class="bi bi-search"></i></span>
+                    <input type="text" id="busquedaEmail" class="form-control form-control-sm" placeholder="Buscar por email...">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class='container-fluid mt-4 d-flex justify-content-center w-100 mx-auto'>
         <table class='table table-striped table-hover'>
             <thead class='table-dark'>
@@ -168,6 +179,22 @@
             echo "<p>No hay usuarios registrados</p>";
         }   
         ?>
+
+    <script>
+        document.getElementById('busquedaEmail').addEventListener('keyup', function() {
+            const filtro = this.value.toLowerCase();
+            const filas = document.querySelectorAll('table tbody tr');
+
+            filas.forEach(fila => {
+                const email = fila.cells[3].textContent.toLowerCase();
+                if (email.includes(filtro)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

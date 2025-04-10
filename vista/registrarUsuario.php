@@ -1,17 +1,5 @@
 <?php
     session_start();
-
-    if (!isset($_SESSION['user'])){
-        $_SESSION['msg'] = "Necesitas iniciar sesión para entrar aquí.";
-        header('Location: ../index.php');
-        exit();
-    } else {
-        if ($_SESSION['user']['tipo_usuario'] !== 'admin'){
-            $_SESSION['msg'] = "NO ESTAS AUTORIZADO PARA ENTRAR AQUI. SE PROCEDERÁ A LLAMAR A LAS AUTORIDADES COMPETENTES PARA SU SANCIÓN.";
-            header('Location: ../index.php');
-            exit();
-        }
-    }
 ?>
 
 <!DOCTYPE html>
