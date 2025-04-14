@@ -20,7 +20,7 @@
             }
         } else {
             $_SESSION['msg'] = "Alguno de los datos introducidos no es correcto.";
-            heafer('Location: ../vista/gestionarUsuarios.php');
+            header('Location: ../vista/gestionarUsuarios.php');
             exit();
         }
     }

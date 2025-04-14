@@ -121,7 +121,7 @@
                 <div class='modal fade' id='modalEditar{$id}' tabindex='-1' aria-hidden='true'>
                     <div class='modal-dialog'>
                         <div class='modal-content'>
-                            <form method='POST' action='../controlador/editarUsuario.php'>
+                            <form method='POST' action='../controlador/actualizarUsuario.php'>
                                 <div class='modal-header'>
                                     <h5 class='modal-title'>Editar Usuario</h5>
                                     <button type='button' class='btn-close' data-bs-dismiss='modal'></button>
