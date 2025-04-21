@@ -28,7 +28,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body> <!-- VER PORQUE SALE LA OPCION DE HACER SCROLL HORIZONTAL -->
-    <?php include './include/navbar.php'; ?>
+    <?php include '../include/navbar.php'; ?>
 
     <div class="row d-flex justify-content-center mt-5">
         <div class="card m-2" style="width: 18rem;">

@@ -1,6 +1,6 @@
 <nav class="navbar bg-black bg-gradient">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="../index.php">
             <img src="./imagenes/logo.png" alt="Bootstrap" width="110" height="80">
         </a>
         <a class="navbar-brand fs-4 fw-semibold mx-auto text-light" href="#">Cartelera</a>
@@ -13,10 +13,10 @@
             <?php
                 if (isset($_SESSION['user'])){
                     if($_SESSION['user']['tipo_usuario'] == 'admin'){
-                        echo "<a href='./vista/iniciadoAdmin.php' class='btn btn-dark w-100 m-1'>Zona administrador</a>";
+                        echo "<a href='vista/iniciadoAdmin.php' class='btn btn-dark w-100 m-1'>Zona administrador</a>";
                     }
-                    echo "<a href='./vista/miPerfil.php' class='btn btn-dark w-100 m-1'>Mi perfil</a>";
-                    echo "<a href='./controlador/cerrarSesion.php' class='btn btn-dark w-100 m-1'>Cerrar sesión</a>";
+                    echo "<a href='vista/miPerfil.php' class='btn btn-dark w-100 m-1'>Mi perfil</a>";
+                    echo "<a href='controlador/cerrarSesion.php' class='btn btn-dark w-100 m-1'>Cerrar sesión</a>";
                 } else {
                     echo "<h6 class='text-center fw-bold'>Iniciar Sesión</h6>
                             <form action='./controlador/autenticacion.php' method='post'>
