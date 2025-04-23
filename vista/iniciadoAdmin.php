@@ -30,7 +30,7 @@
 <body> <!-- VER PORQUE SALE LA OPCION DE HACER SCROLL HORIZONTAL -->
     <?php include '../include/navbar.php'; ?>
 
-    <div class="row d-flex justify-content-center mt-5">
+    <div class="row d-flex justify-content-center mt-5 mb-5">
         <div class="card m-2" style="width: 18rem;">
         <img src="../imagenes/agregar.jpg" class="card-img-top mt-2" alt="">
             <div class="card-body text-center">
@@ -81,6 +81,8 @@
             unset($_SESSION['msg']);
         } 
     ?>
+
+    <?php include '../include/footer.php'; ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

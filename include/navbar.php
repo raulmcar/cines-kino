@@ -1,7 +1,7 @@
 <nav class="navbar bg-black bg-gradient">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand" href="../index.php">
-            <img src="./imagenes/logo.png" alt="Bootstrap" width="110" height="80">
+        <a class="navbar-brand" href="/cine/index.php">
+            <img src="/cine/imagenes/logo.png" alt="Bootstrap" width="110" height="80">
         </a>
         <a class="navbar-brand fs-4 fw-semibold mx-auto text-light" href="#">Cartelera</a>
         <a class="navbar-brand fs-4 fw-semibold mx-auto text-light" href="#">Foro</a>
@@ -13,13 +13,13 @@
             <?php
                 if (isset($_SESSION['user'])){
                     if($_SESSION['user']['tipo_usuario'] == 'admin'){
-                        echo "<a href='vista/iniciadoAdmin.php' class='btn btn-dark w-100 m-1'>Zona administrador</a>";
+                        echo "<a href='/cine/vista/iniciadoAdmin.php' class='btn btn-dark w-100 m-1'>Zona administrador</a>";
                     }
-                    echo "<a href='vista/miPerfil.php' class='btn btn-dark w-100 m-1'>Mi perfil</a>";
-                    echo "<a href='controlador/cerrarSesion.php' class='btn btn-dark w-100 m-1'>Cerrar sesión</a>";
+                    echo "<a href='/cine/vista/miPerfil.php' class='btn btn-dark w-100 m-1'>Mi perfil</a>";
+                    echo "<a href='/cine/controlador/cerrarSesion.php' class='btn btn-dark w-100 m-1'>Cerrar sesión</a>";
                 } else {
                     echo "<h6 class='text-center fw-bold'>Iniciar Sesión</h6>
-                            <form action='./controlador/autenticacion.php' method='post'>
+                            <form action='/cine/controlador/autenticacion.php' method='post'>
                                 <div class='mb-2'>
                                     <label for='email' class='form-label'>Correo electrónico</label>
                                     <input type='email' class='form-control' name='email'>
@@ -31,7 +31,7 @@
                                 <button type='submit' class='btn btn-dark w-100'>Entrar</button>
                             </form>
                             <p class='text-center mb-0 mt-1'>
-                                <a href='./vista/registrarUsuario.php' class='text-decoration-none'>¿No tienes cuenta? Regístrate</a>
+                                <a href='/cine/vista/registrarUsuario.php' class='text-decoration-none'>¿No tienes cuenta? Regístrate</a>
                             </p>";
                 }
             ?>
