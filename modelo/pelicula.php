@@ -105,5 +105,23 @@
                 return $pelis = [];
             }
         }
+
+        public static function getPelicula(int $id_pelicula){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM pelicula WHERE id_pelicula = '$id_pelicula'");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $pelicula = $consulta->fetch();
+
+                return $pelicula;
+            }
+            catch(PDOException $e){
+                echo "Error al buscar la pelicula " . $e->getMessage();
+            }
+        }
     }
 ?>

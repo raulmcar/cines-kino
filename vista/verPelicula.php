@@ -18,7 +18,17 @@
 <body>
     <?php include '../include/navbar.php'; ?>
 
-    
+    <?php
+        require_once('../modelo/pelicula.php');
+        $pelicula = Pelicula::getPelicula($_POST['id_peli']);
+
+        if ($pelicula) {
+            echo "<h1>" . $pelicula['titulo'] . "</h1>";
+        } else {
+            echo "<p>No hay datos de la pelicula</p>";
+        }
+
+    ?>
 
     <?php include '../include/footer.php'; ?>
 
