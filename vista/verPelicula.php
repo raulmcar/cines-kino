@@ -20,7 +20,7 @@
 
     <?php
         require_once('../modelo/pelicula.php');
-        $pelicula = Pelicula::getPelicula($_POST['id_peli']);
+        $pelicula = Pelicula::getPeliculaById($_POST['id_peli']);
 
         if ($pelicula) {
             echo "<h1>" . $pelicula['titulo'] . "</h1>";

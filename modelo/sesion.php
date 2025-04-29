@@ -42,6 +42,30 @@
                 return $registro;
             }
         }
+
+        public static function getSesionesById(int $id_pelicula){
+            
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM sesion WHERE id_pelicula = '$id_pelicula'");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $sesiones = [];
+
+                while ($sesion = $consulta->fetch()){
+                    $sesiones[] = $sesion;
+                }
+
+                return $sesiones;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar las sesiones " . $e->getMessage();
+                return $sesiones = [];
+            }
+        }
+
     }
 
 ?>

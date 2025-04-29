@@ -106,7 +106,7 @@
             }
         }
 
-        public static function getPelicula(int $id_pelicula){
+        public static function getPeliculaById(int $id_pelicula){
 
             try{
                 $pdo = new BD();
