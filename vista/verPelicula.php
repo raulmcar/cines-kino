@@ -21,14 +21,41 @@
     <?php
         require_once('../modelo/pelicula.php');
         $pelicula = Pelicula::getPeliculaById($_POST['id_peli']);
-
-        if ($pelicula) {
-            echo "<h1>" . $pelicula['titulo'] . "</h1>";
-        } else {
-            echo "<p>No hay datos de la pelicula</p>";
-        }
-
     ?>
+
+    <div class="container py-5 bg-secondary bg-gradient rounded my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="../imagenes/carteles/<?= $pelicula['titulo'] ?>.jpg" alt="<?= $pelicula['titulo'] ?>" class="img-fluid rounded shadow-lg">
+            </div>
+
+            <div class="col-md-8">
+                <h1 class="text-warning"><?= $pelicula['titulo'] ?></h1>
+                <p class="text-muted"><?= $pelicula['sinopsis'] ?></p>
+
+                <ul class="list-unstyled">
+                    <li><strong>Duración:</strong> <?= $pelicula['duracion'] ?> minutos</li>
+                    <li><strong>Clasificación:</strong> +<?= $pelicula['clasificacion'] ?></li>
+                    <li><strong>Género:</strong> <?= $pelicula['genero'] ?></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <h3 class="mb-3">Sesiones disponibles</h3>
+        <div class="row">
+            <?php foreach ($sesiones as $sesion): ?>
+                <div class="col-md-2 col-4 mb-3">
+                    <form method="GET" action="seleccionarAsientos.php">
+                    <input type="hidden" name="id_sesion" value="<?= $sesion['id'] ?>">
+                    <button class="btn btn-outline-warning w-100"><?= date('H:i', strtotime($sesion['hora'])) ?></button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
 
     <?php include '../include/footer.php'; ?>
 

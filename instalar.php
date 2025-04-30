@@ -46,11 +46,13 @@
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS pelicula(
             id_pelicula INT PRIMARY KEY AUTO_INCREMENT,
             titulo VARCHAR(50),
-            sinopsis VARCHAR(300),
+            sinopsis VARCHAR(2000),
             duracion VARCHAR(20),
             genero VARCHAR(30),
             clasificacion VARCHAR(30),
             imagen VARCHAR(100));");
+            // director
+            // anio
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS sala(
             id_sala INT PRIMARY KEY AUTO_INCREMENT,
@@ -62,11 +64,14 @@
             id_sala INT(5),
             fila INT(2),
             numero INT(2));");
+            // estado (comprado o libre)
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS reserva_asiento(
             id_reserva_asiento INT PRIMARY KEY AUTO_INCREMENT,
             id_reserva INT(5),
             id_asiento INT(5));");
+
+        // CREAR TABLA COMENTARIOS
         
         $bdConexion->exec("ALTER TABLE reserva ADD FOREIGN KEY(id_usuario)
             REFERENCES usuario(id_usuario) ON DELETE CASCADE;");
