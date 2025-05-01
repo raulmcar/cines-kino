@@ -66,7 +66,7 @@
             </div>
             <div class="mb-2">
                 <label class="form-label">Fecha de la sesión</label>
-                <input type="date"  name="fechaSesion" class="form-control">
+                <input type="datetime-local"  name="fechaSesion" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar sesion</button>
         </form>

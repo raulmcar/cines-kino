@@ -41,7 +41,7 @@
             id_sesion INT PRIMARY KEY AUTO_INCREMENT,
             id_pelicula INT(5),
             id_sala INT(5),
-            fecha_hora VARCHAR(10));");
+            fecha_hora DATETIME);");
         
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS pelicula(
             id_pelicula INT PRIMARY KEY AUTO_INCREMENT,
@@ -72,6 +72,11 @@
             id_asiento INT(5));");
 
         // CREAR TABLA COMENTARIOS
+        $bdConexion->exec("CREATE TABLE IF NOT EXISTS comentario(
+            id_comentario INT PRIMARY KEY AUTO_INCREMENT,
+            id_usuario INT(5),
+            id_pelicula INT(5),
+            texto_comentario VARCHAR(2000));");
         
         $bdConexion->exec("ALTER TABLE reserva ADD FOREIGN KEY(id_usuario)
             REFERENCES usuario(id_usuario) ON DELETE CASCADE;");

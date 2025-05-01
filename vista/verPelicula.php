@@ -43,13 +43,18 @@
 
         <hr class="my-4">
 
-        <h3 class="mb-3">Sesiones disponibles</h3>
+        <?php
+            require_once('../modelo/sesion.php');
+            $sesiones = Sesion::getSesionesById($_POST['id_peli']);
+        ?>
+
+        <h3 class="mb-3 text-warning">Sesiones disponibles</h3>
         <div class="row">
             <?php foreach ($sesiones as $sesion): ?>
                 <div class="col-md-2 col-4 mb-3">
-                    <form method="GET" action="seleccionarAsientos.php">
-                    <input type="hidden" name="id_sesion" value="<?= $sesion['id'] ?>">
-                    <button class="btn btn-outline-warning w-100"><?= date('H:i', strtotime($sesion['hora'])) ?></button>
+                    <form method="POST" action="seleccionarAsientos.php">
+                        <input type="hidden" name="id_sesion" value="<?= $sesion['id_sesion'] ?>">
+                        <button class="btn btn-outline-warning w-100"><?= date('H:i', strtotime($sesion['fecha_hora'])) ?></button>
                     </form>
                 </div>
             <?php endforeach; ?>
