@@ -66,6 +66,24 @@
             }
         }
 
+        public static function getDatosSesion(int $id_sesion){
+            
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM sesion WHERE id_sesion = '$id_sesion'");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $sesion = $consulta->fetch();
+
+                return $sesion;
+            }
+            catch(PDOException $e){
+                echo "Error al buscar la sesion " . $e->getMessage();
+            }
+        }
+
     }
 
 ?>

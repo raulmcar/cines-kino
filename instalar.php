@@ -96,11 +96,17 @@
         $bdConexion->exec("ALTER TABLE asiento ADD FOREIGN KEY(id_sala)
             REFERENCES sala(id_sala) ON DELETE CASCADE;");
         
-        $bdConexion->exec("ALTER TABLE reserva_asiento(id_reserva)
+        $bdConexion->exec("ALTER TABLE reserva_asiento ADD FOREIGN KEY(id_reserva)
             REFERENCES reserva(id_reserva) ON DELETE CASCADE;");
 
-        $bdConexion->exec("ALTER TABLE reserva_asiento(id_asiento)
+        $bdConexion->exec("ALTER TABLE reserva_asiento ADD FOREIGN KEY(id_asiento)
             REFERENCES asiento(id_asiento) ON DELETE CASCADE;");
+
+        $bdConexion->exec("ALTER TABLE comentario ADD FOREIGN KEY(id_usuario)
+            REFERENCES usuario(id_usuario) ON DELETE CASCADE;");
+
+        $bdConexion->exec("ALTER TABLE comentario ADD FOREIGN KEY(id_usuario)
+            REFERENCES pelicula(id_pelicula) ON DELETE CASCADE;");
 
         $bdConexion->commit();
         $bdConexion = null;

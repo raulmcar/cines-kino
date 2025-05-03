@@ -42,11 +42,28 @@
                 return $registro;
             }
         }
+
+        public static function desplegarAsientos(int $id_sala){
+            
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM asiento WHERE id_sala = '$id_sala'");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $asientos = [];
+
+                while ($asiento = $consulta->fetch()){
+                    $asientos[] = $asiento;
+                }
+
+                return $asientos;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar los asientos " . $e->getMessage();
+                return $asientos = [];
+            }
+        }
     }
-
-
-
-
-
-
 ?>

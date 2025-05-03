@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <hr class="my-4">
+        <hr class="my-4"> <!-- RETOCAR A PARTIR DE AQUI -->
 
         <?php
             require_once('../modelo/sesion.php');
@@ -52,8 +52,9 @@
         <div class="row">
             <?php foreach ($sesiones as $sesion): ?>
                 <div class="col-md-2 col-4 mb-3">
-                    <form method="POST" action="seleccionarAsientos.php">
+                    <form method="POST" action="">
                         <input type="hidden" name="id_sesion" value="<?= $sesion['id_sesion'] ?>">
+                        <input type="hidden" name="id_peli" value="<?= $pelicula['id_pelicula'] ?>">
                         <button class="btn btn-outline-warning w-100"><?= date('H:i', strtotime($sesion['fecha_hora'])) ?></button>
                     </form>
                 </div>
