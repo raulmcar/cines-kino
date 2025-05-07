@@ -43,12 +43,12 @@
             }
         }
 
-        public static function getSesionesById(int $id_pelicula){
+        public static function getSesionesById(int $id_pelicula, string $fecha){
             
             try{
                 $pdo = new BD();
                 $bdConexion = $pdo->getPDO();
-                $consulta = $bdConexion->prepare("SELECT * FROM sesion WHERE id_pelicula = '$id_pelicula'");
+                $consulta = $bdConexion->prepare("SELECT * FROM sesion WHERE id_pelicula = '$id_pelicula' AND DATE(fecha_hora) = '$fecha'");
                 $consulta->setFetchMode(PDO::FETCH_ASSOC);
                 $consulta->execute();
 

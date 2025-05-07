@@ -43,23 +43,36 @@
 
         <hr class="my-4"> <!-- RETOCAR A PARTIR DE AQUI -->
 
+        <form method="POST" action="" class="mb-3 w-50 mx-auto">
+            <h3 for="fecha" class="form-label text-warning text-center">Selecciona una fecha para ver las sesiones:</h3>
+            <input type="date" id="fecha" name="fecha" value="<?= $fechaSeleccionada ?>" class="form-control" />
+            <button type="submit" class="btn btn-outline-warning mt-2">Ver sesiones</button>
+        </form>
+
         <?php
             require_once('../modelo/sesion.php');
-            $sesiones = Sesion::getSesionesById($_POST['id_peli']);
+            $sesiones = Sesion::getSesionesById($pelicula['id_pelicula'], $_POST['fecha']);
         ?>
 
-        <h3 class="mb-3 text-warning">Sesiones disponibles</h3>
-        <div class="row">
-            <?php foreach ($sesiones as $sesion): ?>
-                <div class="col-md-2 col-4 mb-3">
-                    <form method="POST" action="">
-                        <input type="hidden" name="id_sesion" value="<?= $sesion['id_sesion'] ?>">
-                        <input type="hidden" name="id_peli" value="<?= $pelicula['id_pelicula'] ?>">
-                        <button class="btn btn-outline-warning w-100"><?= date('H:i', strtotime($sesion['fecha_hora'])) ?></button>
-                    </form>
-                </div>
-            <?php endforeach; ?>
-        </div>
+        <?php
+            if (!empty($sesiones)){
+                echo "<div class='row'>";
+                $sesionesPorSala = [];
+                foreach ($sesiones as $sesion){
+                    $sesionesPorSala[$sesion['id_sala']][] = $sesion;
+                }
+
+                foreach ($sesionesPorSala as $id_sala => $sesionesSala); //Por cada id_sala me da la lista de las sesiones
+
+                echo "<div class='col-12 mb-4'>"
+                        
+
+            } else {
+                echo "<p>No hay sesiones disponibles para la fecha seleccionada.</p>";
+            }
+        ?>
+
+
     </div>
 
 

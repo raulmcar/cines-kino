@@ -5,8 +5,9 @@
         if (isset($_POST['peli'], $_POST['sala'], $_POST['fechaSesion']) && !empty($_POST['peli']) 
         && !empty($_POST['sala']) && !empty($_POST['fechaSesion'])){
             require_once('../modelo/sesion.php');
+            $fechaFormateada = date('Y-m-d H:i:s', strtotime($_POST['fechaSesion']));
 
-            $sesion = new Sesion($_POST['peli'], $_POST['sala'], $_POST['fechaSesion']);
+            $sesion = new Sesion($_POST['peli'], $_POST['sala'], $fechaFormateada);
 
             if ($sesion->registrarSesion()){
                 $_SESSION['msg'] = "La sesion se ha registrado con exito";
@@ -23,8 +24,4 @@
             exit();
         }
     }
-
-
-
-
 ?>

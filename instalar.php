@@ -51,6 +51,7 @@
             genero VARCHAR(30),
             clasificacion VARCHAR(30),
             imagen VARCHAR(100));");
+            // trailer ????
             // director
             // anio
 
@@ -76,6 +77,7 @@
             id_comentario INT PRIMARY KEY AUTO_INCREMENT,
             id_usuario INT(5),
             id_pelicula INT(5),
+            valoracion INT(5),
             texto_comentario VARCHAR(2000));");
         
         $bdConexion->exec("ALTER TABLE reserva ADD FOREIGN KEY(id_usuario)
