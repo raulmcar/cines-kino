@@ -64,7 +64,7 @@
 
                 foreach ($sesionesPorSala as $id_sala => $sesionesSala); //Por cada id_sala me da la lista de las sesiones
 
-                echo "<div class='col-12 mb-4'>"
+                echo "<div class='col-12 mb-4'>";
                         
 
             } else {
