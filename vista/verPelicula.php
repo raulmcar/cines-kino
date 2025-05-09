@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require_once('../modelo/pelicula.php');
+    require_once('../modelo/sesion.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,29 +21,30 @@
     <?php include '../include/navbar.php'; ?>
 
     <?php
-        require_once('../modelo/pelicula.php');
-        $pelicula = Pelicula::getPeliculaById($_POST['id_peli']);
+        if (!isset($_SESSION['peliculaElegida'])){
+            $_SESSION['peliculaElegida'] = Pelicula::getPeliculaById($_POST['id_peli']);
+        }
     ?>
 
     <div class="container py-5 bg-secondary bg-gradient rounded my-5">
         <div class="row">
             <div class="col-md-4">
-                <img src="../imagenes/carteles/<?= $pelicula['titulo'] ?>.jpg" alt="<?= $pelicula['titulo'] ?>" class="img-fluid rounded shadow-lg">
+                <img src="../imagenes/carteles/<?= $_SESSION['peliculaElegida']['titulo'] ?>.jpg" alt="<?= $_SESSION['peliculaElegida']['titulo'] ?>" class="img-fluid rounded shadow-lg">
             </div>
 
             <div class="col-md-8">
-                <h1 class="text-warning"><?= $pelicula['titulo'] ?></h1>
-                <p class="text-muted"><?= $pelicula['sinopsis'] ?></p>
+                <h1 class="text-warning"><?= $_SESSION['peliculaElegida']['titulo'] ?></h1>
+                <p class="text-muted"><?= $_SESSION['peliculaElegida']['sinopsis'] ?></p>
 
                 <ul class="list-unstyled">
-                    <li><strong>Duración:</strong> <?= $pelicula['duracion'] ?> minutos</li>
-                    <li><strong>Clasificación:</strong> +<?= $pelicula['clasificacion'] ?></li>
-                    <li><strong>Género:</strong> <?= $pelicula['genero'] ?></li>
+                    <li><strong>Duración:</strong> <?= $_SESSION['peliculaElegida']['duracion'] ?> minutos</li>
+                    <li><strong>Clasificación:</strong> +<?= $_SESSION['peliculaElegida']['clasificacion'] ?></li>
+                    <li><strong>Género:</strong> <?= $_SESSION['peliculaElegida']['genero'] ?></li>
                 </ul>
             </div>
         </div>
 
-        <hr class="my-4"> <!-- RETOCAR A PARTIR DE AQUI -->
+        <hr class="my-4"> 
 
         <form method="POST" action="" class="mb-3 w-50 mx-auto">
             <h3 for="fecha" class="form-label text-warning text-center">Selecciona una fecha para ver las sesiones:</h3>
@@ -50,31 +53,41 @@
         </form>
 
         <?php
-            require_once('../modelo/sesion.php');
-            $sesiones = Sesion::getSesionesById($pelicula['id_pelicula'], $_POST['fecha']);
-        ?>
+            if (isset($_POST['fecha']) && !empty($_POST['fecha'])) {
+                $fechaSeleccionada = $_POST['fecha'];
+                $sesiones = Sesion::getSesionesById($_SESSION['peliculaElegida']['id_pelicula'], $fechaSeleccionada);
+            } else {
+                $fechaSeleccionada = '';
+                $sesiones = [];
+            }
 
-        <?php
-            if (!empty($sesiones)){
+            if (!empty($sesiones)) {
                 echo "<div class='row'>";
-                $sesionesPorSala = [];
-                foreach ($sesiones as $sesion){
+                $sesionesAgrupadas = [];
+                foreach ($sesiones as $sesion) {
                     $sala = $sesion['id_sala'];
                     $sesionesAgrupadas[$sala][] = $sesion;
                 }
 
                 foreach ($sesionesAgrupadas as $sala => $sesionesDeLaSala) {
-                    echo "<h4>Sala $sala</h4>";
+                    echo "<h4 class='mt-4 text-warning'>Sala $sala</h4>";
+                    echo "<div class='d-flex flex-wrap gap-2 mb-4'>";
                     foreach ($sesionesDeLaSala as $sesion) {
-                        echo date('H:i', strtotime($sesion['fecha_hora'])) . "<br>";
+                        $hora = date('H:i', strtotime($sesion['fecha_hora']));
+                        echo "
+                            <form method='POST' action='reservaAsiento.php'>
+                                <input type='hidden' name='id_sesion' value='{$sesion['id_sesion']}'>
+                                <button type='submit' class='btn btn-outline-warning'>$hora</button>
+                            </form>
+                        ";
                     }
+                    echo "</div>";
                 }
+                echo "</div>";
             } else {
                 echo "<p>No hay sesiones disponibles para la fecha seleccionada.</p>";
             }
         ?>
-
-
     </div>
 
 

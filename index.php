@@ -1,5 +1,10 @@
 <?php
     session_start();
+    require_once('./modelo/pelicula.php');
+
+    if (isset($_SESSION['peliculaElegida'])){
+        unset($_SESSION['peliculaElegida']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +36,7 @@
 <body>
     <?php include './include/navbar.php'; ?>
 
-    <?php
-        require_once('./modelo/pelicula.php');
-        $pelis = Pelicula::desplegarPeliculas();
-    ?>
+    <?php $pelis = Pelicula::desplegarPeliculas(); ?>
 
     <div class="draggable mt-4">
         <div class="min-vh-75">

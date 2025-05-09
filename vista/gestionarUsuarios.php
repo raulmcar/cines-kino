@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once('../modelo/usuario.php');
 
     if (!isset($_SESSION['user'])){
         $_SESSION['msg'] = "Necesitas iniciar sesión para entrar aquí.";
@@ -56,7 +57,6 @@
                 </tr>
             </thead>
         <?php
-        require_once('../modelo/usuario.php');
         Usuario::getAllUsers();
 
         if (isset($_SESSION['AllUsers'])){

@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require_once('../modelo/sala.php');
+    require_once('../modelo/pelicula.php');
 
     if (!isset($_SESSION['user'])){
         $_SESSION['msg'] = "Necesitas iniciar sesión para entrar aquí.";
@@ -34,7 +36,6 @@
         <form id="formulario" class="col-6 mt-5 p-3 rounded bg-dark-subtle bg-gradient text-dark" action="../controlador/registrarSesion.php" method="post">
             <div class="mb-2">
             <?php
-                require_once('../modelo/pelicula.php');
                 $pelis = Pelicula::desplegarPeliculas();
 
                 if(!empty($pelis)){
@@ -50,7 +51,6 @@
             </div>
             <div class="mb-2">
             <?php
-                require_once('../modelo/sala.php');
                 $salas = Sala::desplegarSalas();
 
                 if(!empty($salas)){
