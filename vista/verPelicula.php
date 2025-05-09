@@ -59,14 +59,16 @@
                 echo "<div class='row'>";
                 $sesionesPorSala = [];
                 foreach ($sesiones as $sesion){
-                    $sesionesPorSala[$sesion['id_sala']][] = $sesion;
+                    $sala = $sesion['id_sala'];
+                    $sesionesAgrupadas[$sala][] = $sesion;
                 }
 
-                foreach ($sesionesPorSala as $id_sala => $sesionesSala); //Por cada id_sala me da la lista de las sesiones
-
-                echo "<div class='col-12 mb-4'>";
-                        
-
+                foreach ($sesionesAgrupadas as $sala => $sesionesDeLaSala) {
+                    echo "<h4>Sala $sala</h4>";
+                    foreach ($sesionesDeLaSala as $sesion) {
+                        echo date('H:i', strtotime($sesion['fecha_hora'])) . "<br>";
+                    }
+                }
             } else {
                 echo "<p>No hay sesiones disponibles para la fecha seleccionada.</p>";
             }
