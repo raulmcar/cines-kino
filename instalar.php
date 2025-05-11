@@ -54,6 +54,7 @@
             // trailer ????
             // director
             // anio
+            // estreno : bool
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS sala(
             id_sala INT PRIMARY KEY AUTO_INCREMENT,

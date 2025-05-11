@@ -75,7 +75,7 @@
                     foreach ($sesionesDeLaSala as $sesion) {
                         $hora = date('H:i', strtotime($sesion['fecha_hora']));
                         echo "
-                            <form method='POST' action='reservaAsiento.php'>
+                            <form method='POST' action='/cine/vista/reservarAsiento.php'>
                                 <input type='hidden' name='id_sesion' value='{$sesion['id_sesion']}'>
                                 <button type='submit' class='btn btn-outline-warning'>$hora</button>
                             </form>
