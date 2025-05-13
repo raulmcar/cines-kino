@@ -10,8 +10,8 @@
 
     $sesion = Sesion::getDatosSesion($_POST['id_sesion']);
     $pelicula = Pelicula::getPeliculaById($sesion['id_pelicula']);
-    $asientos = Asiento::desplegarAsientos($sesion['id_sala']);
     $fechaFormateada = date('d-m-Y H:i', strtotime($sesion['fecha_hora']));
+    $asientos = Asiento::getAsientosByIds($_POST['asientosReservados']);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +53,6 @@
                     <ul class="list-unstyled mb-0">
 
                 <?php
-                    $asientos = Asiento::getAsientosByIds($_POST['asientosReservados']);
                     foreach ($asientos as $asiento) {
                         echo "<li><i class='bi bi-ticket-perforated'></i>  Fila {$asiento['fila']} - Asiento {$asiento['numero']}</li>";
                     }

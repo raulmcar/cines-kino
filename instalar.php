@@ -29,7 +29,7 @@
             id_usuario INT(5),
             id_sesion INT(5),
             precio FLOAT(10),
-            fecha_reserva VARCHAR(10));");
+            fecha_reserva DATETIME);");
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS pago(
             id_pago INT PRIMARY KEY AUTO_INCREMENT,
