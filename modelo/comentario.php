@@ -2,15 +2,12 @@
     require_once('bd.php');
 
     class Comentario{
-        private int $id_comentario;
         private int $id_usuario;
         private int $id_pelicula;
         private int $valoracion;
         private string $texto_comentario;
 
-        public function __construct(int $id_comentario, int $id_usuario, int $id_pelicula, int $valoracion, 
-        string $texto_comentario){
-            $this->id_comentario = $id_comentario;
+        public function __construct(int $id_usuario, int $id_pelicula, int $valoracion, string $texto_comentario){
             $this->id_usuario = $id_usuario;
             $this->id_pelicula = $id_pelicula;
             $this->valoracion = $valoracion;
@@ -18,7 +15,6 @@
         }
 
         public function __destruct(){
-            $this->id_comentario = 0;
             $this->id_usuario = 0;
             $this->id_pelicula = 0;
             $this->valoracion = 0;

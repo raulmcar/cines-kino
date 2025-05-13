@@ -9,7 +9,6 @@
         private int $clasificacion;
         private string $imagen;
 
-
         public function __construct(string $titulo, string $sinopsis, string $duracion, string $genero, string $clasificacion,
         string $imagen){
             $this->titulo = $titulo;

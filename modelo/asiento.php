@@ -65,5 +65,30 @@
                 return $asientos = [];
             }
         }
+
+        public static function getAsientosByIds(array $asientos_id){
+
+            try{
+                $cadenaAsientosId = implode(',', $asientos_id);
+
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM asiento WHERE id_asiento IN ($cadenaAsientosId)");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $asientosReserva = [];
+
+                while ($asiento = $consulta->fetch()){
+                    $asientosReserva[] = $asiento;
+                }
+
+                return $asientosReserva;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar los asientos reservados " . $e->getMessage();
+                return $asientosReserva = [];
+            }
+        }
     }
 ?>

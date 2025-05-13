@@ -4,6 +4,10 @@
     require_once('../modelo/sesion.php');
     require_once('../modelo/pelicula.php');
 
+    if (isset($_SESSION['peliculaElegida'])){
+        unset($_SESSION['peliculaElegida']);
+    }
+
     $sesion = Sesion::getDatosSesion($_POST['id_sesion']);
     $pelicula = Pelicula::getPeliculaById($sesion['id_pelicula']);
     $asientos = Asiento::desplegarAsientos($sesion['id_sala']);
