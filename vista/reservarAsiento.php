@@ -73,7 +73,7 @@
                 }
             ?>
 
-                <input type="hidden" name="id_sesion" value="<?php echo $_POST['id_sesion']; ?>">
+                <input type="hidden" name="id_sesion" value="<?php echo $_POST['id_sesion']; ?>"> <!-- Echarle un ojo a esto -->
                 <button type="submit" class="btn btn-warning mt-3">Comprar entradas</button>
             </div>
         </form>

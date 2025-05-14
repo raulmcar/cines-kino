@@ -73,7 +73,6 @@
             id_reserva INT(5),
             id_asiento INT(5));");
 
-        // CREAR TABLA COMENTARIOS
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS comentario(
             id_comentario INT PRIMARY KEY AUTO_INCREMENT,
             id_usuario INT(5),

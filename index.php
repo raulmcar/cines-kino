@@ -2,9 +2,12 @@
     session_start();
     require_once('./modelo/pelicula.php');
 
-    if (isset($_SESSION['peliculaElegida'])){
+    if (isset($_SESSION['peliculaElegida'], $_SESSION['sesionElegida'], $_SESSION['asientosElegidos'])){
         unset($_SESSION['peliculaElegida']);
+        unset($_SESSION['sesionElegida']);
+        unset($_SESSION['asientosElegidos']);
     }
+
 ?>
 
 <!DOCTYPE html>

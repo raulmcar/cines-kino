@@ -4,14 +4,12 @@
     require_once('../modelo/sesion.php');
     require_once('../modelo/pelicula.php');
 
-    if (isset($_SESSION['peliculaElegida'])){
-        unset($_SESSION['peliculaElegida']);
-    }
-
     $sesion = Sesion::getDatosSesion($_POST['id_sesion']);
-    $pelicula = Pelicula::getPeliculaById($sesion['id_pelicula']);
     $fechaFormateada = date('d-m-Y H:i', strtotime($sesion['fecha_hora']));
     $asientos = Asiento::getAsientosByIds($_POST['asientosReservados']);
+
+    $_SESSION['sesionElegida'] = $sesion;
+    $_SESSION['asientosElegidos'] = $asientos;
 ?>
 
 <!DOCTYPE html>
@@ -37,14 +35,14 @@
 
                 <div class="text-center mb-4">
                     <img class="img-fluid border-radius-lg shadow rounded"
-                        src="../imagenes/carteles/<?= $pelicula['titulo'] ?>.jpg"
-                        alt="<?= $pelicula['titulo'] ?>"
+                        src="../imagenes/carteles/<?= $_SESSION['peliculaElegida']['titulo'] ?>.jpg"
+                        alt="<?= $_SESSION['peliculaElegida']['titulo'] ?>"
                         style="height: 300px; width: 300px; object-fit: cover;">
                 </div>
 
                 <div class="mb-3 text-center">
-                    <h4 class="fw-bold"><?= $pelicula['titulo'] ?></h4>
-                    <p class="mb-1 fs-5">Sala: <?= $sesion['id_sala'] ?></p>
+                    <h4 class="fw-bold"><?= $_SESSION['peliculaElegida']['titulo'] ?></h4>
+                    <p class="mb-1 fs-5">Sala: <?= $_SESSION['sesionElegida']['id_sala'] ?></p>
                     <p class="mb-1 fs-5">Fecha y hora: <?= $fechaFormateada ?></p>
                 </div>
 
