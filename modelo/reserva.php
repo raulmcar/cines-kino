@@ -29,7 +29,7 @@
                 $bdConexion = $pdo->getPDO();
 
                 $consulta = $bdConexion->prepare("INSERT INTO reserva (id_usuario, id_sesion, precio, fecha_reserva)
-                    VALUES (?, ?, ?, ?)");
+                    VALUES (?,?,?,?)");
 
                 if ($this->id_usuario === null) {
                     $consulta->bindValue(1, null);
@@ -47,6 +47,49 @@
             } catch (PDOException $e) {
                 echo "Error al hacer la reserva: " . $e->getMessage();
                 return $registro;
+            }
+        }
+
+        public function getIdReserva(){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+
+                $consulta = $bdConexion->prepare("SELECT id_reserva FROM reserva ORDER BY id_reserva DESC LIMIT 1;");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $id_reserva = $consulta->fetch();
+
+                return $id_reserva['id_reserva'];
+            }
+            catch(PDOException $e){
+                echo "Error al consultar el id: " . $e->getMessage();
+                return false;
+            }
+        }
+
+        public static function getReservasByIdUser(int $id_usuario){
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM reserva WHERE id_usuario = '$id_usuario'");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $reservas = [];
+
+                while ($reserva = $consulta->fetch()){
+                    $reservas[] = $reserva;
+                }
+
+                return $reservas;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar las salas " . $e->getMessage();
+                return $reservas = [];
             }
         }
     }

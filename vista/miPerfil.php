@@ -1,5 +1,10 @@
 <?php
     session_start();
+    require_once('../modelo/reserva.php');
+    require_once ('../modelo/sesion.php');
+    require_once ('../modelo/pelicula.php');
+
+    $reservas = Reserva::getReservasByIdUser($_SESSION['user']['id_usuario']);
 
     if (!isset($_SESSION['user'])){
         $_SESSION['msg'] = "Necesitas iniciar sesión para entrar aquí.";
@@ -46,6 +51,31 @@
         </div>
     </div>
 
+    <div class="container my-5">
+        <h3 class="text-warning text-center mb-4">Tus reservas</h3>
+
+        <?php
+            if (empty($reservas)) {
+                echo "<p class=\"text-center text-secondary\">No tienes reservas realizadas.</p>";
+            } else {
+                echo "<div class=\"row row-cols-1 row-cols-md-2 g-4\">";
+                foreach ($reservas as $reserva) {
+                    $sesion = Sesion::getDatosSesion($reserva['id_sesion']);
+                    $pelicula = Pelicula::getPeliculaById($sesion['id_pelicula']);
+
+                    echo "<div class=\"col\">";
+                    echo "<div class=\"card border-warning shadow-sm\">";
+                    echo "<div class=\"card-body\">";
+                    echo "<h5 class=\"card-title text-primary fw-bold\">{$pelicula['titulo']}</h5>";
+                    echo "<p class=\"card-text text-secondary\">Sala: {$sesion['id_sala']}</p>";
+                    echo "<p class=\"card-text text-secondary\">Fecha y hora: {$sesion['fecha_hora']}</p>";
+                    echo "<p class=\"card-text text-muted\"><i class=\"bi bi-ticket-perforated\"></i> Nº Reserva: {$reserva['id_reserva']}</p>";
+                    echo "</div></div></div>";
+                }
+                echo "</div>";
+            }
+        ?>
+    </div>
 
     <?php
         if (isset($_SESSION['msg'])) {

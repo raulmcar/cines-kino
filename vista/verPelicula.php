@@ -48,7 +48,7 @@
 
         <form method="POST" action="" class="mb-3 w-50 mx-auto">
             <h3 for="fecha" class="form-label text-warning text-center">Selecciona una fecha para ver las sesiones:</h3>
-            <input type="date" id="fecha" name="fecha" value="<?= $fechaSeleccionada ?>" class="form-control" />
+            <input type="date" id="fecha" name="fecha" value="<?php $fechaSeleccionada ?>" class="form-control" />
             <button type="submit" class="btn btn-outline-warning mt-2">Ver sesiones</button>
         </form>
 

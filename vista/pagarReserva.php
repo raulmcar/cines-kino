@@ -65,7 +65,7 @@
             <div class="bg-secondary bg-gradient rounded p-4 text-warning" style="--bs-bg-opacity: .7;">
                 <h3 class="mb-4 border-bottom pb-2 text-center">Datos de usuario y pago</h3>
 
-                <form method="POST" action="procesarPago.php" id="formPago">
+                <form method="POST" action="/cine/controlador/procesarReserva.php" id="formPago">
                     <?php
                         if (!isset($_SESSION['user'])) {
                             echo "<div class='mb-4'>

@@ -73,12 +73,12 @@
             id_reserva INT(5),
             id_asiento INT(5));");
 
-        $bdConexion->exec("CREATE TABLE IF NOT EXISTS comentario(
+        /*$bdConexion->exec("CREATE TABLE IF NOT EXISTS comentario(
             id_comentario INT PRIMARY KEY AUTO_INCREMENT,
             id_usuario INT(5),
             id_pelicula INT(5),
             valoracion INT(5),
-            texto_comentario VARCHAR(2000));");
+            texto_comentario VARCHAR(2000));");*/
         
         $bdConexion->exec("ALTER TABLE reserva ADD FOREIGN KEY(id_usuario)
             REFERENCES usuario(id_usuario) ON DELETE CASCADE;");
