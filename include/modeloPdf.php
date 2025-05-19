@@ -69,12 +69,15 @@
                             $html .= '<li>Fila ' . htmlspecialchars($asiento['fila']) . ' - Asiento ' . htmlspecialchars($asiento['numero']) . '</li>';
                         }
 
-                $html .= '
-                        </ul>
-                        <div class="precio">Total: ' . number_format($datos['precioTotal'], 2) . ' €</div>
+            $html .= '
+                    </ul>
+                    <div class="precio">Total: ' . number_format($datos['precioTotal'], 2) . ' €</div>
+                    <div class="qr">
+                        <barcode code="Entrada: ' . htmlspecialchars($datos['titulo']) . '" type="QR" size="1.5" error="M" />
+                        <div style="font-size: 12px; color: #555;">Escanea para confirmar</div>
                     </div>
-                </body>
-                </html>';
+                </div>';
+
 
                 $mpdf = new Mpdf();
                 $mpdf->WriteHTML($html);
