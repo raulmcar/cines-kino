@@ -81,5 +81,23 @@
                 return $reservas = [];
             }
         }
+
+        public static function getReservaById(int $id_reserva){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM reserva WHERE id_reserva = '$id_reserva'");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $reserva = $consulta->fetch();
+
+                return $reserva;
+            }          
+            catch(PDOException $e){
+                echo "Error al buscar la reserva " . $e->getMessage();
+            }
+        }
     }
 ?>

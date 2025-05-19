@@ -70,6 +70,7 @@
                     echo "<p class='card-text text-secondary'>Sala: {$sesion['id_sala']}</p>";
                     echo "<p class='card-text text-secondary'>Fecha y hora: {$sesion['fecha_hora']}</p>";
                     echo "<p class='card-text text-muted'>Precio total: {$reserva['precio']} <i class='bi bi-currency-euro'></i></p>";
+                    echo "<a href='/cine/controlador/generarPdfUser.php?id_reserva={$reserva['id_reserva']}' class='btn btn-outline-warning btn-sm mt-2 ms-2'>Descargar PDF</a>";
                     echo "</div></div></div>";
                 }
                 echo "</div>";
