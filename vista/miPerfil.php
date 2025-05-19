@@ -56,20 +56,20 @@
 
         <?php
             if (empty($reservas)) {
-                echo "<p class=\"text-center text-secondary\">No tienes reservas realizadas.</p>";
+                echo "<p class='text-center text-secondary'>No tienes reservas realizadas.</p>";
             } else {
-                echo "<div class=\"row row-cols-1 row-cols-md-2 g-4\">";
+                echo "<div class='row row-cols-1 row-cols-md-2 g-4'>";
                 foreach ($reservas as $reserva) {
                     $sesion = Sesion::getDatosSesion($reserva['id_sesion']);
                     $pelicula = Pelicula::getPeliculaById($sesion['id_pelicula']);
 
-                    echo "<div class=\"col\">";
-                    echo "<div class=\"card border-warning shadow-sm\">";
-                    echo "<div class=\"card-body\">";
-                    echo "<h5 class=\"card-title text-primary fw-bold\">{$pelicula['titulo']}</h5>";
-                    echo "<p class=\"card-text text-secondary\">Sala: {$sesion['id_sala']}</p>";
-                    echo "<p class=\"card-text text-secondary\">Fecha y hora: {$sesion['fecha_hora']}</p>";
-                    echo "<p class=\"card-text text-muted\"><i class=\"bi bi-ticket-perforated\"></i> Nº Reserva: {$reserva['id_reserva']}</p>";
+                    echo "<div class='col'>";
+                    echo "<div class='card border-warning shadow-sm'>";
+                    echo "<div class='card-body'>";
+                    echo "<h5 class='card-title text-primary fw-bold'>{$pelicula['titulo']}</h5>";
+                    echo "<p class='card-text text-secondary'>Sala: {$sesion['id_sala']}</p>";
+                    echo "<p class='card-text text-secondary'>Fecha y hora: {$sesion['fecha_hora']}</p>";
+                    echo "<p class='card-text text-muted'>Precio total: {$reserva['precio']} <i class='bi bi-currency-euro'></i></p>";
                     echo "</div></div></div>";
                 }
                 echo "</div>";

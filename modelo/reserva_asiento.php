@@ -36,5 +36,33 @@
                 return $regsitro;
             }
         }
+
+        public static function obtenerAsientosOcupados(int $id_sesion){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT a.id_asiento FROM reserva_asiento AS ra
+                    INNER JOIN reserva AS r ON ra.id_reserva = r.id_reserva
+                    INNER JOIN asiento AS a ON ra.id_asiento = a.id_asiento
+                    WHERE r.id_sesion = (?)");
+                
+                $consulta->bindParam(1, $id_sesion);
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $asientosReservados = [];
+
+                while ($asiento = $consulta->fetch()){
+                    $asientosReservados[] = $asiento;
+                }
+
+                return $asientosReservados;
+            }
+            catch (PDOException $e){
+                echo "Error al mostrar los asientos reservados " . $e->getMessage();
+                return $asientosReservados = [];
+            }
+        }
     }
 ?>

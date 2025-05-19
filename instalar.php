@@ -51,7 +51,6 @@
             genero VARCHAR(30),
             clasificacion VARCHAR(30),
             imagen VARCHAR(100));");
-            // trailer ????
             // director
             // anio
             // estreno : bool
@@ -59,7 +58,7 @@
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS sala(
             id_sala INT PRIMARY KEY AUTO_INCREMENT,
             nombre VARCHAR(20),
-            capacidad INT(3));");
+            capacidad INT(3));"); // Eliminar esto
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS asiento(
             id_asiento INT PRIMARY KEY AUTO_INCREMENT,
@@ -86,9 +85,6 @@
         $bdConexion->exec("ALTER TABLE reserva ADD FOREIGN KEY(id_sesion)
             REFERENCES sesion(id_sesion) ON DELETE CASCADE;");
 
-        $bdConexion->exec("ALTER TABLE pago ADD FOREIGN KEY(id_reserva)
-            REFERENCES reserva(id_reserva) ON DELETE CASCADE;");
-
         $bdConexion->exec("ALTER TABLE sesion ADD FOREIGN KEY(id_pelicula)
             REFERENCES pelicula(id_pelicula) ON DELETE CASCADE;");
 
@@ -104,11 +100,14 @@
         $bdConexion->exec("ALTER TABLE reserva_asiento ADD FOREIGN KEY(id_asiento)
             REFERENCES asiento(id_asiento) ON DELETE CASCADE;");
 
-        $bdConexion->exec("ALTER TABLE comentario ADD FOREIGN KEY(id_usuario)
-            REFERENCES usuario(id_usuario) ON DELETE CASCADE;");
+        /*$bdConexion->exec("ALTER TABLE pago ADD FOREIGN KEY(id_reserva)
+            REFERENCES reserva(id_reserva) ON DELETE CASCADE;");*/
 
-        $bdConexion->exec("ALTER TABLE comentario ADD FOREIGN KEY(id_usuario)
-            REFERENCES pelicula(id_pelicula) ON DELETE CASCADE;");
+        /*$bdConexion->exec("ALTER TABLE comentario ADD FOREIGN KEY(id_usuario)
+            REFERENCES usuario(id_usuario) ON DELETE CASCADE;");*/
+
+        /*$bdConexion->exec("ALTER TABLE comentario ADD FOREIGN KEY(id_usuario)
+            REFERENCES pelicula(id_pelicula) ON DELETE CASCADE;");*/
 
         $bdConexion->commit();
         $bdConexion = null;

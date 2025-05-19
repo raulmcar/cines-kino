@@ -3,11 +3,13 @@
     require_once('../modelo/asiento.php');
     require_once('../modelo/sesion.php');
     require_once('../modelo/pelicula.php');
+    require_once('../modelo/reserva_asiento.php');
 
     $sesion = Sesion::getDatosSesion($_POST['id_sesion']);
     $pelicula = Pelicula::getPeliculaById($sesion['id_pelicula']);
     $asientos = Asiento::desplegarAsientos($sesion['id_sala']);
     $fechaFormateada = date('d-m-Y H:i', strtotime($sesion['fecha_hora']));
+    $asientosOcupados = ReservaAsiento::obtenerAsientosOcupados($sesion['id_sesion']);
 ?>
 
 <!DOCTYPE html>
@@ -59,11 +61,27 @@
 
                     foreach ($asientosFila as $asiento) {
                         $id = $asiento['id_asiento'];
+                        $ocupado = false;
+
+                        foreach ($asientosOcupados as $ocupadoId) {
+                            if ($id == $ocupadoId['id_asiento']) {
+                                $ocupado = true;
+                                break;
+                            }
+                        }
+
+                        $disabled = '';
+                        $clase = 'btn-outline-light';
+
+                        if ($ocupado) {
+                            $disabled = 'disabled';
+                            $clase = 'btn-danger';
+                        }
 
                         echo "
                             <div class='form-check me-1'>
-                                <input class='btn-check' type='checkbox' name='asientosReservados[]' id='asiento$id' value='$id'>
-                                <label class='btn btn-outline-light rounded-pill' for='asiento$id' style='width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;'>
+                                <input class='btn-check' type='checkbox' name='asientosReservados[]' id='asiento$id' value='$id' $disabled>
+                                <label class='btn $clase rounded-pill' for='asiento$id' style='width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;'>
                                     <span class='material-symbols-outlined'>chair</span>
                                 </label>
                             </div>

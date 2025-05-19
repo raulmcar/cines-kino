@@ -2,12 +2,14 @@
     require_once('bd.php');
 
     class Reserva{
+        private ?int $id_reserva;
         private ?int $id_usuario;
         private int $id_sesion;
         private float $precio;
         private string $fechaReserva;
 
         public function __construct(?int $id_usuario, int $id_sesion, float $precio, string $fechaReserva){
+            $this->id_reserva = null;
             $this->id_usuario = $id_usuario;
             $this->id_sesion = $id_sesion;
             $this->precio = $precio;
@@ -15,10 +17,15 @@
         }
 
         public function __destruct(){
+            $this->id_reserva = null;
             $this->id_usuario = 0;
             $this->id_sesion = 0;
             $this->precio = 0;
             $this->fechaReserva = "";
+        }
+
+        public function getId(){
+            return $this->id_reserva;
         }
 
         public function crearReserva() {
@@ -42,31 +49,13 @@
                 $consulta->bindParam(4, $this->fechaReserva);
 
                 $consulta->execute();
+
+                $this->id_reserva = $bdConexion->lastInsertId();
                 $registro = true;
                 return $registro;
             } catch (PDOException $e) {
                 echo "Error al hacer la reserva: " . $e->getMessage();
                 return $registro;
-            }
-        }
-
-        public function getIdReserva(){
-
-            try{
-                $pdo = new BD();
-                $bdConexion = $pdo->getPDO();
-
-                $consulta = $bdConexion->prepare("SELECT id_reserva FROM reserva ORDER BY id_reserva DESC LIMIT 1;");
-                $consulta->setFetchMode(PDO::FETCH_ASSOC);
-                $consulta->execute();
-
-                $id_reserva = $consulta->fetch();
-
-                return $id_reserva['id_reserva'];
-            }
-            catch(PDOException $e){
-                echo "Error al consultar el id: " . $e->getMessage();
-                return false;
             }
         }
 

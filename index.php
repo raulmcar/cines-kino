@@ -5,8 +5,6 @@
     unset($_SESSION['peliculaElegida']);
     unset($_SESSION['sesionElegida']);
     unset($_SESSION['asientosElegidos']);
-
-
 ?>
 
 <!DOCTYPE html>

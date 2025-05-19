@@ -20,7 +20,7 @@
 
                     $reserva = new Reserva($_SESSION['user']['id_usuario'], $_SESSION['sesionElegida']['id_sesion'], $totalCompra, $fecha_reserva);
                     $reserva->crearReserva();
-                    $id_reserva = $reserva->getIdReserva();
+                    $id_reserva = $reserva->getId();
                     
                     foreach($_SESSION['asientosElegidos'] as $asiento){
                         $reservaAsiento = new ReservaAsiento($id_reserva, $asiento['id_asiento']);
@@ -37,7 +37,7 @@
 
             $reserva = new Reserva($_SESSION['user']['id_usuario'], $_SESSION['sesionElegida']['id_sesion'], $totalCompra, $fecha_reserva);
             $reserva->crearReserva();
-            $id_reserva = $reserva->getIdReserva();
+            $id_reserva = $reserva->getId();
                     
             foreach($_SESSION['asientosElegidos'] as $asiento){
                 $reservaAsiento = new ReservaAsiento($id_reserva, $asiento['id_asiento']);
