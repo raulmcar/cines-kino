@@ -1,6 +1,8 @@
 <?php
     require_once(__DIR__ . '/../vendor/autoload.php');
 
+    use Mpdf\Mpdf;
+
     function generarEntradaPDF($datos){
             $html = '
                 <html>
@@ -45,7 +47,8 @@
                             margin-bottom: 15px;
                         }
                         .cartel img {
-                            max-width: 200px;
+                            max-width: 150px;
+                            height: auto;
                             border-radius: 10px;
                         }
                     </style>
@@ -55,7 +58,7 @@
                         <div class="cartel">
                             <img src="' . $datos['imagenCartel'] . '" alt="Cartel">
                         </div>
-                        <div class="titulo">Entrada de Cine</div>
+                        <div class="titulo">DATOS DE TU ENTRADA</div>
                         <div class="info"><strong>Pelicula:</strong> ' . htmlspecialchars($datos['titulo']) . '</div>
                         <div class="info"><strong>Sala:</strong> ' . htmlspecialchars($datos['sala']) . '</div>
                         <div class="info"><strong>Fecha y hora:</strong> ' . htmlspecialchars($datos['fecha']) . '</div>
@@ -73,7 +76,7 @@
                 </body>
                 </html>';
 
-                $mpdf = new \mPDF();
+                $mpdf = new Mpdf();
                 $mpdf->WriteHTML($html);
                 $mpdf->Output("entrada_cine.pdf", "D");
     }
