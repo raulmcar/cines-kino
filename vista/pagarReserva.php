@@ -4,7 +4,7 @@
     require_once('../modelo/sesion.php');
     require_once('../modelo/pelicula.php');
 
-    $sesion = Sesion::getDatosSesion($_POST['id_sesion']);
+    $sesion = Sesion::getDatosSesion($_POST['id_sesion']); // No me va esto
     $fechaFormateada = date('d-m-Y H:i', strtotime($sesion['fecha_hora']));
     $asientos = Asiento::getAsientosByIds($_POST['asientosReservados']);
 

@@ -3,7 +3,7 @@
 
     use Mpdf\Mpdf;
 
-    function generarEntradaPDF($datos){
+    function generarEntradaPDF($datos, $ruta_pdf){
         $html = '
             <html>
             <head>
@@ -79,8 +79,6 @@
 
         $mpdf = new Mpdf(['format' => 'A4']);
         $mpdf->WriteHTML($html);
-        $mpdf->Output("entrada_cine.pdf", "D");
+        $mpdf->Output($ruta_pdf, "F");
     }
-
-
 ?>

@@ -3,6 +3,7 @@
     require_once('../modelo/usuario.php');
     require_once('../modelo/reserva.php');
     require_once('../modelo/reserva_asiento.php');
+    require_once('../servicios/modeloPdfMailer.php');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (!isset($_SESSION['user'])){
@@ -30,6 +31,37 @@
                     header('Location: ../vista/procesandoCompra.php');
                     exit();
                 }
+            } elseif (isset($_POST['correo_invitado_reserva'])) {
+                $correoInvitado = $_POST['correo_invitado_reserva'];
+                $totalCompra = count($_SESSION['asientosElegidos']) * 8.15;
+                $fecha_reserva = date('Y-m-d H:i:s'); 
+
+                $reserva = new Reserva(null, $_SESSION['sesionElegida']['id_sesion'], $totalCompra, $fecha_reserva);
+                $reserva->crearReserva();
+                $id_reserva = $reserva->getId();
+
+                foreach($_SESSION['asientosElegidos'] as $asiento){
+                    $reservaAsiento = new ReservaAsiento($id_reserva, $asiento['id_asiento']);
+                    $reservaAsiento->crearReservaAsiento();
+                }
+
+                $datosReserva = [
+                    'titulo' => $_SESSION['peliculaElegida']['titulo'],
+                    'sala' => $_SESSION['sesionElegida']['id_sala'],
+                    'fecha' => date('d-m-Y H:i', strtotime($_SESSION['sesionElegida']['fecha_hora'])),
+                    'precioTotal' => count($_SESSION['asientosElegidos']) * 8.15,
+                    'imagenCartel' => '../imagenes/carteles/' . $_SESSION['peliculaElegida']['titulo'] . '.jpg',
+                    'asientosElegidos' => $_SESSION['asientosElegidos']
+                ];
+
+                $ruta_pdf = '../pdfMailer/entrada_cine.pdf';
+
+                generarEntradaPDF($datosReserva, $ruta_pdf);
+                enviarEntradaPorCorreo($ruta_pdf, $correoInvitado);
+                unlink($ruta_pdf);
+
+                header('Location: ../vista/procesandoCompra.php');
+                exit();
             }
         } else {
             $totalCompra = count($_SESSION['asientosElegidos']) * 8.15;

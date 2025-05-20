@@ -3,7 +3,7 @@
     require_once('../modelo/sesion.php');
     require_once('../modelo/pelicula.php');
     require_once('../modelo/reserva_asiento.php');
-    require_once('../include/modeloPdf.php');
+    require_once('../servicios/modeloPdf.php');
 
     use Mpdf\Mpdf;
 

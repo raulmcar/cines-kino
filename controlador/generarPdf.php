@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('../include/modeloPdf.php');
+    require_once('../servicios/modeloPdf.php');
 
     if (!isset($_SESSION['peliculaElegida'], $_SESSION['sesionElegida'], $_SESSION['asientosElegidos'])){
         $_SESSION['msg'] = "Faltan datos para generar la entrada en PDF";
