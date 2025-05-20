@@ -17,7 +17,7 @@
             $mail->Port       = 465;
 
             $mail->setFrom('cineskino@gmail.com', 'Cines Kino');
-            $mail->addAddress($correo_destino); 
+            $mail->addAddress($correo_invitado); 
 
             $mail->isHTML(true);
             $mail->Subject = 'Tu entrada de cine';

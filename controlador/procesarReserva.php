@@ -4,10 +4,11 @@
     require_once('../modelo/reserva.php');
     require_once('../modelo/reserva_asiento.php');
     require_once('../servicios/modeloPdfMailer.php');
+    require_once('../servicios/modeloMailer.php');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (!isset($_SESSION['user'])){
-            if (isset($_POST['correo_reserva'], $_POST['contrasena_reserva'])){
+            if (!empty($_POST['correo_reserva']) && !empty($_POST['contrasena_reserva'])) {
 
                 $usuario = Usuario::iniciarSesion($_POST['correo_reserva'], $_POST['contrasena_reserva']);
 
@@ -57,7 +58,7 @@
                 $ruta_pdf = '../pdfMailer/entrada_cine.pdf';
 
                 generarEntradaPDF($datosReserva, $ruta_pdf);
-                enviarEntradaPorCorreo($ruta_pdf, $correoInvitado);
+                enviarEntradaCorreoInvitado($ruta_pdf, $correoInvitado);
                 unlink($ruta_pdf);
 
                 header('Location: ../vista/procesandoCompra.php');
