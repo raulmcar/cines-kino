@@ -36,10 +36,6 @@
                 <label class="form-label">Nombre de la sala</label>
                 <input type="text" name="nombreSala" class="form-control">
             </div>
-            <div class="mb-2">
-                <label class="form-label">Capacidad</label>
-                <input type="number"  name="capacidad" class="form-control">
-            </div>
             <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar sala</button>
         </form>
     </div>

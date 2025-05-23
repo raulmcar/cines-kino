@@ -56,6 +56,21 @@
                 <label class="form-label">Cartel de la película</label>
                 <input type="file" name="cartelPeli" class="form-control">
             </div>
+            <div class="mb-2">
+                <label class="form-label">Director</label>
+                <input type="text" name="director" class="form-control">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Año de estreno</label>
+                <input type="number" name="anio" class="form-control">
+            </div>
+            <div class="mb-2">
+                <label class="form-label" for="estreno">¿Estreno?</label>
+                <select name="estreno" id="estreno" class="form-select">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar pelicula</button>
         </form>
     </div>

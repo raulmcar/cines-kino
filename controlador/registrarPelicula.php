@@ -3,8 +3,9 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (isset($_POST['nombrePeli'], $_POST['sinopsis'], $_POST['duracion'], $_POST['genero'], $_POST['clasificacion'], 
-        $_FILES['cartelPeli']) && !empty($_POST['nombrePeli']) && !empty($_POST['sinopsis']) && !empty($_POST['duracion']) 
-        && !empty($_POST['genero']) && !empty($_POST['clasificacion']) && !empty($_FILES['cartelPeli'])){
+        $_FILES['cartelPeli'], $_POST['director'], $_POST['anio'], $_POST['estreno']) && !empty($_POST['nombrePeli']) && !empty($_POST['sinopsis']) && !empty($_POST['duracion']) 
+        && !empty($_POST['genero']) && !empty($_POST['clasificacion']) && !empty($_FILES['cartelPeli']) && !empty($_POST['director'])
+        && !empty($_POST['anio']) && !empty($_POST['estreno'])){
             require_once('../modelo/pelicula.php');
 
             $directorio_subida = "../imagenes/carteles/";
@@ -13,7 +14,7 @@
             move_uploaded_file($_FILES['cartelPeli']['tmp_name'], $fichero_subido);
 
             $pelicula = new Pelicula($_POST['nombrePeli'], $_POST['sinopsis'], $_POST['duracion'], $_POST['genero'], 
-            $_POST['clasificacion'], $fichero_subido);
+            $_POST['clasificacion'], $fichero_subido, $_POST['director'], $_POST['anio'], $_POST['estreno']);
 
             if ($pelicula->comprobarPelicula($_POST['nombrePeli'])) {
                 $_SESSION['msg'] = "La pelicula está ya registrada";
