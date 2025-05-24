@@ -25,7 +25,7 @@
         }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div class="min-vh-100 d-flex justify-content-center align-items-center">
         <div class="bg-secondary bg-gradient rounded p-4 text-warning text-center" style="--bs-bg-opacity: .9; width: 30rem;">
             <div id="estadoCompra">

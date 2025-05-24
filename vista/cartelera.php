@@ -38,7 +38,7 @@
             }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php include '../include/navbar.php'; ?>
 
     <?php $pelis = Pelicula::desplegarPeliculas(); ?>

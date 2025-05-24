@@ -45,13 +45,13 @@
             genero VARCHAR(30),
             clasificacion VARCHAR(30),
             imagen VARCHAR(100),
-            director VARHCAR(100),
+            director VARCHAR(100),
             anio INT(5),
             estreno BOOLEAN);");
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS sala(
             id_sala INT PRIMARY KEY AUTO_INCREMENT,
-            nombre VARCHAR(20);");
+            nombre VARCHAR(20));");
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS asiento(
             id_asiento INT PRIMARY KEY AUTO_INCREMENT,

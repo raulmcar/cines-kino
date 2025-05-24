@@ -4,7 +4,7 @@
             <img src="/cine/imagenes/logo.png" alt="Bootstrap" width="110" height="80">
         </a>
         <a class="navbar-brand fs-4 fw-semibold mx-auto text-warning" href="/cine/vista/cartelera.php">Cartelera</a>
-        <a class="navbar-brand fs-4 fw-semibold mx-auto text-warning" href="#">Promociones</a>
+        <a class="navbar-brand fs-4 fw-semibold mx-auto text-warning" href="/cine/vista/promociones.php">Promociones</a>
         <a class="navbar-brand fs-4 fw-semibold mx-auto text-warning" href="#">Contáctanos</a>
     <div class="dropdown">
         <button class="btn btn-primary text-white rounded-circle dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">

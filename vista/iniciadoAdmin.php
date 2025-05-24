@@ -27,7 +27,7 @@
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body> <!-- VER PORQUE SALE LA OPCION DE HACER SCROLL HORIZONTAL -->
+<body class="d-flex flex-column min-vh-100"> <!-- VER PORQUE SALE LA OPCION DE HACER SCROLL HORIZONTAL -->
     <?php include '../include/navbar.php'; ?>
 
     <div class="row d-flex justify-content-center mt-5 mb-5">
@@ -64,7 +64,7 @@
             </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-center mt-5">
+    <div class="row d-flex justify-content-center mt-2 mb-5">
     <div class="card m-2" style="width: 18rem;">
         <img src="../imagenes/gestionarUsuarios.jpg" class="card-img-top mt-2" alt="">
             <div class="card-body text-center">

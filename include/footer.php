@@ -1,4 +1,4 @@
-<footer class="bg-black bg-gradient text-warning py-4 position-relative mt-4" style="width: 100%;">
+<footer class="bg-black bg-gradient text-warning py-4 mt-auto" style="width: 100%;">
   <div class="container position-relative">
     <div class="d-flex justify-content-between align-items-center flex-wrap">
       <p class="mb-0 fs-5">© 2025 Cines Kino</p>
