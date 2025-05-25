@@ -28,7 +28,7 @@
 
             $mail->send();
         } 
-        catch(PDOException $e){
+        catch(Exception $e){
             echo "Error al enviar la entrada al destinatario " . $e->getMessage();
         }
     }

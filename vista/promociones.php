@@ -24,29 +24,91 @@
     <?php include '../include/navbar.php'; ?>
 
     <div class="container my-4">
-        <div class="card mb-3 py-5 bg-secondary bg-gradient rounded my-5">
+        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-5">
             <div class="row g-0 align-items-center">
-            <div class="col-md-4">
-                <img src="img/promocion1.jpg" class="img-fluid rounded-start" alt="Promo 1">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                <h5 class="card-title">¡2x1 en entradas los miércoles!</h5>
-                <p class="card-text">Disfruta del mejor cine a mitad de precio.</p>
-                <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#promo1">
-                    Saber más
-                </button>
-                <div class="collapse mt-3" id="promo1">
-                    <div class="card card-body">
-                    Aplica solo a sesiones estándar. No acumulable con otras promociones. Presenta tu código en taquilla o app.
+                <div class="col-md-4 ps-3">
+                    <img 
+                        src="/cine/imagenes/promociones/2por1.jpg" 
+                        class="img-fluid rounded" 
+                        alt="Promo 1"
+                        style="object-fit: cover; height: 250px; width:450px"
+                    >
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h5 class="card-title">¡2x1 en entradas los miércoles!</h5>
+                        <p class="card-text">Disfruta del mejor cine a mitad de precio.</p>
+                        <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#promo1">
+                            Saber más
+                        </button>
+                        <div class="collapse mt-3" id="promo1">
+                            <div class="card card-body">
+                                Aplica solo a sesiones estándar. No acumulable con otras promociones. Presenta tu código en taquilla o app.
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
 
+    <div class="container my-4">
+        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-5">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h5 class="card-title">¡Entrada gratis por tu cumpleaños!</h5>
+                        <p class="card-text">Celebra tu día especial con nosotros y entra gratis al cine.</p>
+                        <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#promo2">
+                            Saber más
+                        </button>
+                        <div class="collapse mt-3" id="promo2">
+                            <div class="card card-body">
+                                Presenta tu DNI en taquilla el mismo día de tu cumpleaños y obtén una entrada estándar sin coste. Válido solo una vez al año y no acumulable con otras promociones.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img 
+                        src="/cine/imagenes/promociones/cumplepromo.jpg" 
+                        class="img-fluid rounded" 
+                        alt="Promo Cumpleaños"
+                        style="object-fit: cover; height: 250px; width:450px"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-5">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-4 ps-3">
+                    <img 
+                        src="/cine/imagenes/promociones/palomitasviernes.jpg" 
+                        class="img-fluid rounded" 
+                        alt="Promo 1"
+                        style="object-fit: cover; height: 250px; width:450px"
+                    >
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h5 class="card-title">¡Palomitas gratis los viernes por la noche!</h5>
+                        <p class="card-text">Disfruta de unas palomitas gratis con tu entrada en sesiones a partir de las 20:00h.</p>
+                        <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#promo3">
+                            Saber más
+                        </button>
+                        <div class="collapse mt-3" id="promo3">
+                            <div class="card card-body">
+                                Promoción válida solo los viernes a partir de las 20:00 h. Aplica a una entrada por persona. No acumulable con otras ofertas. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php include '../include/footer.php'; ?>
 

@@ -40,7 +40,7 @@
 
     <div class="draggable mt-4">
         <div class="min-vh-75">
-            <div class="container bg-secondary bg-gradient rounded p-4" style="--bs-bg-opacity: .7;">
+            <div class="container bg-secondary bg-gradient rounded p-4 mb-4" style="--bs-bg-opacity: .7;">
                 <div class="row">
                     <div class="col-lg-4 my-auto">
                         <h1 class="text-gradient text-warning mb-0">LOS ÚLTIMOS</h1>
@@ -131,7 +131,6 @@
                                 }
                                 ?>
                             </div>
-
                         </div>
                     </div>
                 </div>
