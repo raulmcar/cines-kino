@@ -23,8 +23,8 @@
 <body class="d-flex flex-column min-vh-100">
     <?php include '../include/navbar.php'; ?>
 
-    <div class="container my-4">
-        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-5">
+    <div class="container my-2">
+        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded">
             <div class="row g-0 align-items-center">
                 <div class="col-md-4 ps-3">
                     <img 
@@ -52,9 +52,17 @@
         </div>
     </div>
 
-    <div class="container my-4">
-        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-5">
+    <div class="container my-2">
+        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-2">
             <div class="row g-0 align-items-center">
+                <div class="col-md-4 ps-3">
+                    <img 
+                        src="/cine/imagenes/promociones/cumplepromo.jpg" 
+                        class="img-fluid rounded" 
+                        alt="Promo 1"
+                        style="object-fit: cover; height: 250px; width:450px"
+                    >
+                </div>
                 <div class="col-md-7">
                     <div class="card-body">
                         <h5 class="card-title">¡Entrada gratis por tu cumpleaños!</h5>
@@ -69,20 +77,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <img 
-                        src="/cine/imagenes/promociones/cumplepromo.jpg" 
-                        class="img-fluid rounded" 
-                        alt="Promo Cumpleaños"
-                        style="object-fit: cover; height: 250px; width:450px"
-                    >
-                </div>
             </div>
         </div>
     </div>
 
-    <div class="container my-4">
-        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-5">
+    <div class="container my-2">
+        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-2">
             <div class="row g-0 align-items-center">
                 <div class="col-md-4 ps-3">
                     <img 
@@ -102,6 +102,36 @@
                         <div class="collapse mt-3" id="promo3">
                             <div class="card card-body">
                                 Promoción válida solo los viernes a partir de las 20:00 h. Aplica a una entrada por persona. No acumulable con otras ofertas. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-2">
+        <div class="card mb-3 py-4 bg-secondary bg-gradient rounded my-2">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-4 ps-3">
+                    <img 
+                        src="/cine/imagenes/promociones/dorada.jpg" 
+                        class="img-fluid rounded" 
+                        alt="Promo 1"
+                        style="object-fit: cover; height: 250px; width:450px"
+                    >
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h5 class="card-title">Asiento Dorado: Tu Entrada Vale Más</h5>
+                        <p class="card-text">¡Si te toca, te devolvemos el dinero de la entrada y te regalamos 2 entradas!</p>
+                        <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#promo4">
+                            Saber más
+                        </button>
+                        <div class="collapse mt-3" id="promo4">
+                            <div class="card card-body">
+                                El Asiento Dorado se selecciona aleatoriamente antes de cada sesión y se anuncia en pantalla antes del inicio de la película. 
+                                Válido solo para entradas compradas en nuestra web o taquilla. Las entradas de regalo son válidas durante 30 días.
                             </div>
                         </div>
                     </div>
