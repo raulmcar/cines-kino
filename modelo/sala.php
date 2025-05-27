@@ -4,18 +4,13 @@
     class Sala{
         private string $nombre;
         private int $capacidad;
-        private ?array $asientos;
 
-        public function __construct(string $nombre, int $capacidad){
+        public function __construct(string $nombre){
             $this->nombre = $nombre;
-            $this->capacidad = $capacidad;
-            $this->asientos = [];
         }
 
         public function __destruct(){
             $this->nombre = "";
-            $this->capacidad = 0;
-            $this->asientos = [];
         }
 
         public function registrarSala(){
@@ -25,11 +20,10 @@
                 $pdo = new BD();
                 $bdConexion = $pdo->getPDO();
 
-                $consulta = $bdConexion->prepare("INSERT INTO sala(nombre, capacidad)
-                    VALUES (?,?)");
+                $consulta = $bdConexion->prepare("INSERT INTO sala(nombre)
+                    VALUES (?)");
 
                 $consulta->bindParam(1, $this->nombre);
-                $consulta->bindParam(2, $this->capacidad);
 
                 $consulta->execute();
                 $registro = true;
