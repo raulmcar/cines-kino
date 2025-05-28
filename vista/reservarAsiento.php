@@ -33,11 +33,11 @@
         <div class="row align-items-center">
             <div class="col-md-4 text-center">
                 <img class="img-fluid border-radius-lg shadow rounded"
-                    src="../imagenes/carteles/<?= $pelicula['titulo'] ?>.jpg" alt="<?= $pelicula['titulo'] ?>" style="height: 300px; width: 300px; object-fit: cover;">
+                    src="../imagenes/carteles/<?php $pelicula['titulo'] ?>.jpg" alt="<?php $pelicula['titulo'] ?>" style="height: 300px; width: 300px; object-fit: cover;">
             </div>
             <div class="col-md-8">
-                <h2 class="display-5 fw-bold"><?= $pelicula['titulo'] ?></h2>
-                <p class="display-6">Sala <?= $sesion['id_sala'] ?> | <?= $fechaFormateada ?></p>
+                <h2 class="display-5 fw-bold"><?php $pelicula['titulo'] ?></h2>
+                <p class="display-6">Sala <?php $sesion['id_sala'] ?> | <?php $fechaFormateada ?></p>
             </div>
         </div>
     </div>

@@ -41,7 +41,8 @@
                 $pdo = new BD();
                 $bdConexion = $pdo->getPDO();
 
-                $consulta = $bdConexion->prepare("INSERT INTO usuario(nombre, apellidos, email, contrasena, telefono, dni, fecha_nacimiento, tipo_usuario)
+                $consulta = $bdConexion->prepare("INSERT INTO usuario(nombre, apellidos, email, 
+                contrasena, telefono, dni, fecha_nacimiento, tipo_usuario)
                     VALUES (?,?,?,?,?,?,?,?)");
 
                 $consulta->bindParam(1, $this->nombre);

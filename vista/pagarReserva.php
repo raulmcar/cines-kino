@@ -4,9 +4,10 @@
     require_once('../modelo/sesion.php');
     require_once('../modelo/pelicula.php');
 
-    $sesion = Sesion::getDatosSesion($_POST['id_sesion']); // No me va esto
-    $fechaFormateada = date('d-m-Y H:i', strtotime($sesion['fecha_hora']));
+
+    $sesion = Sesion::getDatosSesion($_POST['id_sesion']); 
     $asientos = Asiento::getAsientosByIds($_POST['asientosReservados']);
+    $fechaFormateada = date('d-m-Y H:i', strtotime($sesion['fecha_hora']));
 
     $_SESSION['sesionElegida'] = $sesion;
     $_SESSION['asientosElegidos'] = $asientos;
@@ -35,15 +36,15 @@
 
                 <div class="text-center mb-4">
                     <img class="img-fluid border-radius-lg shadow rounded"
-                        src="../imagenes/carteles/<?= $_SESSION['peliculaElegida']['titulo'] ?>.jpg"
-                        alt="<?= $_SESSION['peliculaElegida']['titulo'] ?>"
+                        src="../imagenes/carteles/<?php $_SESSION['peliculaElegida']['titulo'] ?>.jpg"
+                        alt="<?php $_SESSION['peliculaElegida']['titulo'] ?>"
                         style="height: 300px; width: 300px; object-fit: cover;">
                 </div>
 
                 <div class="mb-3 text-center">
-                    <h4 class="fw-bold"><?= $_SESSION['peliculaElegida']['titulo'] ?></h4>
-                    <p class="mb-1 fs-5">Sala: <?= $_SESSION['sesionElegida']['id_sala'] ?></p>
-                    <p class="mb-1 fs-5">Fecha y hora: <?= $fechaFormateada ?></p>
+                    <h4 class="fw-bold"><?php $_SESSION['peliculaElegida']['titulo'] ?></h4>
+                    <p class="mb-1 fs-5">Sala: <?php $_SESSION['sesionElegida']['id_sala'] ?></p>
+                    <p class="mb-1 fs-5">Fecha y hora: <?php $fechaFormateada ?></p>
                 </div>
 
                 <div>

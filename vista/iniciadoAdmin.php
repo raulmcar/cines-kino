@@ -7,7 +7,7 @@
         exit();
     } else {
         if ($_SESSION['user']['tipo_usuario'] !== 'admin'){
-            $_SESSION['msg'] = "NO ESTAS AUTORIZADO PARA ENTRAR AQUI. SE PROCEDERÁ A LLAMAR A LAS AUTORIDADES COMPETENTES PARA SU SANCIÓN.";
+            $_SESSION['msg'] = "NO ESTAS AUTORIZADO PARA ENTRAR AQUI.";
             header('Location: ../index.php');
             exit();
         }

@@ -9,12 +9,12 @@
 
             if ($_SESSION['user']){
                 if ($_SESSION['user']['tipo_usuario'] == 'user'){
-                    $_SESSION['msg'] = "Inición sesiada";
+                    $_SESSION['msg'] = "Sesión iniciada.";
                     header('Location: ../index.php');
                     exit();
                 } elseif ($_SESSION['user']['tipo_usuario'] == 'admin'){
-                    $_SESSION['msg'] = "Inición sesiada";
-                    header('Location: ../index.php');
+                    $_SESSION['msg'] = "Sesión iniciada.";
+                    header('Location: ../vista/iniciadoAdmin.php');
                     exit();
                 }
             } else {
