@@ -33,16 +33,16 @@
         <div class="row align-items-center">
             <div class="col-md-4 text-center">
                 <img class="img-fluid border-radius-lg shadow rounded"
-                    src="../imagenes/carteles/<?php $pelicula['titulo'] ?>.jpg" alt="<?php $pelicula['titulo'] ?>" style="height: 300px; width: 300px; object-fit: cover;">
+                    src="../imagenes/carteles/<?php echo $pelicula['titulo'] ?>.jpg" alt="<?php echo $pelicula['titulo'] ?>" style="height: 300px; width: 300px; object-fit: cover;">
             </div>
             <div class="col-md-8">
-                <h2 class="display-5 fw-bold"><?php $pelicula['titulo'] ?></h2>
-                <p class="display-6">Sala <?php $sesion['id_sala'] ?> | <?php $fechaFormateada ?></p>
+                <h2 class="display-5 fw-bold"><?php echo $pelicula['titulo'] ?></h2>
+                <p class="display-6">Sala <?php echo $sesion['id_sala'] ?> | <?php echo $fechaFormateada ?></p>
             </div>
         </div>
     </div>
 
-    <div class="container bg-secondary bg-gradient rounded p-4 mt-4" style="--bs-bg-opacity: .7;">
+    <div class="container bg-secondary bg-gradient rounded p-4 mt-4 mb-3" style="--bs-bg-opacity: .7;">
         <form id="formReservarAsientos" method="POST" action="/cine/vista/pagarReserva.php">
             <h2 class="text-warning text-center mb-4">Selecciona tus asientos</h2>
             <div class="mx-auto bg-light mt-5" style="height: 12px; width: 60%; border-radius: 20px 20px 0 0; box-shadow: 0 0 10px #fff; margin-bottom: 30px;"></div>
@@ -91,7 +91,7 @@
                 }
             ?>
 
-                <input type="hidden" name="id_sesion" value="<?php echo $_POST['id_sesion']; ?>"> <!-- Echarle un ojo a esto -->
+                <input type="hidden" name="id_sesion" value="<?php echo $_POST['id_sesion']; ?>">
                 <button type="submit" class="btn btn-warning mt-3">Comprar entradas</button>
             </div>
         </form>

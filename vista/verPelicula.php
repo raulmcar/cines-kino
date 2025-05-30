@@ -29,17 +29,17 @@
     <div class="container py-5 bg-secondary bg-gradient rounded my-5">
         <div class="row">
             <div class="col-md-4">
-                <img src="../imagenes/carteles/<?php $_SESSION['peliculaElegida']['titulo'] ?>.jpg" 
-                alt="<?php $_SESSION['peliculaElegida']['titulo'] ?>" class="img-fluid rounded shadow-lg">
+                <img src="../imagenes/carteles/<?php echo $_SESSION['peliculaElegida']['titulo'] ?>.jpg" 
+                alt="<?php echo $_SESSION['peliculaElegida']['titulo'] ?>" class="img-fluid rounded shadow-lg">
             </div>
             <div class="col-md-8">
-                <h1 class="text-warning"><?php $_SESSION['peliculaElegida']['titulo'] ?></h1>
-                <p class="text-muted"><?php $_SESSION['peliculaElegida']['sinopsis'] ?></p>
+                <h1 class="text-warning"><?php echo $_SESSION['peliculaElegida']['titulo'] ?></h1>
+                <p class="text-muted"><?php echo $_SESSION['peliculaElegida']['sinopsis'] ?></p>
 
                 <ul class="list-unstyled">
-                    <li><strong>Duración:</strong> <?php $_SESSION['peliculaElegida']['duracion'] ?> minutos</li>
-                    <li><strong>Clasificación:</strong> +<?php $_SESSION['peliculaElegida']['clasificacion'] ?></li>
-                    <li><strong>Género:</strong> <?php $_SESSION['peliculaElegida']['genero'] ?></li>
+                    <li><strong>Duración:</strong> <?php echo $_SESSION['peliculaElegida']['duracion'] ?> minutos</li>
+                    <li><strong>Clasificación:</strong> +<?php echo $_SESSION['peliculaElegida']['clasificacion'] ?></li>
+                    <li><strong>Género:</strong> <?php echo $_SESSION['peliculaElegida']['genero'] ?></li>
                 </ul>
             </div>
         </div>

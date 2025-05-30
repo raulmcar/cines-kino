@@ -4,7 +4,7 @@
 
         public function __construct(){
             $usuario = "root";
-            $password = "Furciademierda4";
+            $password = "password1";
             $dsn = "mysql:host=localhost;dbname=cine";
             $this->pdo = new PDO($dsn, $usuario, $password);
         }

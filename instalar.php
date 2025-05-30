@@ -1,7 +1,7 @@
 <?php
     session_start();
     $usuario = "root";
-    $password = "Furciademierda4";
+    $password = "password1";
     $host = "localhost";
 
     try {

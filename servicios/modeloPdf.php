@@ -53,7 +53,8 @@
             <body>
                 <div class="entrada">
                     <div class="cartel" style="text-align: center; margin-bottom: 10px;">
-                        <img src="' . $datos['imagenCartel'] . '" alt="Cartel" style="height: 600px; display: block; margin: 0 auto; border-radius: 6px;">
+                        <img src="' . $datos['imagenCartel'] . '" alt="Cartel" 
+                        style="height: 600px; display: block; margin: 0 auto; border-radius: 6px;">
                     </div>
                     <div class="titulo">DATOS DE TU ENTRADA</div>
                     <div class="info"><strong>Pelicula:</strong> ' . $datos['titulo'] . '</div>

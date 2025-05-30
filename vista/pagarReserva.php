@@ -36,15 +36,15 @@
 
                 <div class="text-center mb-4">
                     <img class="img-fluid border-radius-lg shadow rounded"
-                        src="../imagenes/carteles/<?php $_SESSION['peliculaElegida']['titulo'] ?>.jpg"
-                        alt="<?php $_SESSION['peliculaElegida']['titulo'] ?>"
+                        src="../imagenes/carteles/<?php echo $_SESSION['peliculaElegida']['titulo'] ?>.jpg"
+                        alt="<?php echo $_SESSION['peliculaElegida']['titulo'] ?>"
                         style="height: 300px; width: 300px; object-fit: cover;">
                 </div>
 
                 <div class="mb-3 text-center">
-                    <h4 class="fw-bold"><?php $_SESSION['peliculaElegida']['titulo'] ?></h4>
-                    <p class="mb-1 fs-5">Sala: <?php $_SESSION['sesionElegida']['id_sala'] ?></p>
-                    <p class="mb-1 fs-5">Fecha y hora: <?php $fechaFormateada ?></p>
+                    <h4 class="fw-bold"><?php echo $_SESSION['peliculaElegida']['titulo'] ?></h4>
+                    <p class="mb-1 fs-5">Sala: <?php echo $_SESSION['sesionElegida']['id_sala'] ?></p>
+                    <p class="mb-1 fs-5">Fecha y hora: <?php echo $fechaFormateada ?></p>
                 </div>
 
                 <div>

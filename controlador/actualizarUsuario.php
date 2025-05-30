@@ -4,7 +4,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (isset($_POST['id_usuario_hidden'], $_POST['newnombre'], $_POST['newapellidos'], $_POST['newemail'], 
             $_POST['newtipo_usuario']) && !empty($_POST['id_usuario_hidden']) && !empty($_POST['newnombre']) 
-            && !empty($_POST['newapellidos']) && !empty($_POST['newemail']) && !empty($_post['newtipo_usuario'])){
+            && !empty($_POST['newapellidos']) && !empty($_POST['newemail']) && !empty($_POST['newtipo_usuario'])){
             require_once('../modelo/usuario.php');
 
             if (Usuario::actualizarUsuario($_POST['id_usuario_hidden'], $_POST['newnombre'], $_POST['newapellidos'], 
