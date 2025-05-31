@@ -134,6 +134,7 @@
             (5,8,1),(5,8,2),(5,8,3),(5,8,4),(5,8,5),(5,8,6),(5,8,7),(5,8,8),(5,8,9),(5,8,10);");
 
         $bdConexion->exec("INSERT INTO pelicula (titulo, sinopsis, duracion, genero, clasificacion, imagen, director, anio, estreno) VALUES
+            ('El señor de los anillos', 'En un mundo mítico conocido como la Tierra Media, un joven hobbit llamado Frodo Bolsón se convierte en el inesperado portador del Anillo Único.', '180 min', 'Aventuras', '+12', '../imagenes/carteles/El señor de los anillos.jpg', 'Peter Jackson', 2001, 1),
             ('Dune Parte Dos', 'Paul Atreides se une a los Fremen para vengar a su familia y evitar el terrible futuro que ha previsto.', '166 min', 'Ciencia ficción', '+12', '../imagenes/carteles/Dune Parte Dos.jpg', 'Denis Villeneuve', 2024, 1),
             ('Godzilla y Kong El Nuevo Imperio', 'Godzilla y Kong se enfrentan a una nueva amenaza colosal bajo la superficie de la Tierra.', '115 min', 'Acción', '+12', '../imagenes/carteles/Godzilla y Kong El Nuevo Imperio.jpg', 'Adam Wingard', 2024, 1),
             ('El especialista', 'Un especialista de cine se ve envuelto en una trama criminal tras un accidente en el rodaje.', '126 min', 'Comedia', '+16', '../imagenes/carteles/El especialista.jpg', 'David Leitch', 2024, 1),
@@ -143,7 +144,7 @@
             ('Oppenheimer', 'La historia de J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.', '180 min', 'Drama', '+16', '../imagenes/carteles/Oppenheimer.jpg', 'Christopher Nolan', 2023, 0),
             ('Barbie', 'Barbie emprende un viaje en el mundo real tras comenzar a cuestionar su existencia.', '114 min', 'Comedia', 'TP', '../imagenes/carteles/Barbie.jpg', 'Greta Gerwig', 2023, 0),
             ('Wonka', 'El joven Willy Wonka conoce a los Oompa Loompas y sueña con abrir su propia fábrica de chocolate.', '116 min', 'Aventura', 'TP', '../imagenes/carteles/Wonka.jpg', 'Paul King', 2023, 0),
-            ('Los Juegos del Hambre Balada de Pájaros Cantores y Serpientes', 'Precuela de Los Juegos del Hambre que narra los orígenes del Presidente Snow.', '157 min', 'Acción', '+12', '../imagenes/carteles/Los Juegos del Hambre Balada de Pájaros Cantores y Serpientes.jpg', 'Francis Lawrence', 2023, 0),
+            ('Los Juegos del Hambre Balada de Pájaros Cantores', 'Precuela de Los Juegos del Hambre que narra los orígenes del Presidente Snow.', '157 min', 'Acción', '+12', '../imagenes/carteles/Los Juegos del Hambre Balada de Pájaros Cantores.jpg', 'Francis Lawrence', 2023, 0),
             ('Napoleón', 'Relato épico sobre el ascenso al poder de Napoleón Bonaparte y su relación con Josefina.', '158 min', 'Histórica', '+16', '../imagenes/carteles/Napoleón.jpg', 'Ridley Scott', 2023, 0),
             ('Elemental', 'Una historia de amor entre elementos opuestos: fuego y agua.', '102 min', 'Animación', 'TP', '../imagenes/carteles/Elemental.jpg', 'Peter Sohn', 2023, 0),
             ('Super Mario Bros La Película', 'Mario y Luigi deben salvar el Reino Champiñón de Bowser.', '92 min', 'Animación', 'TP', '../imagenes/carteles/Super Mario Bros La Película.jpg', 'Aaron Horvath', 2023, 0),
@@ -153,6 +154,18 @@
             ('Trolls 3 Todos juntos', 'Los trolls deben salvar a un miembro perdido de su banda.', '91 min', 'Animación', 'TP', '../imagenes/carteles/Trolls 3 Todos juntos.jpg', 'Walt Dohrn', 2023, 0),
             ('Saw X', 'John Kramer viaja a México para someterse a un tratamiento experimental, pero descubre un fraude.', '118 min', 'Terror', '+18', '../imagenes/carteles/Saw X.jpg', 'Kevin Greutert', 2023, 0),
             ('The Batman', 'En Gotham City, el vigilante Batman descubre una red de corrupción mientras investiga una serie de asesinatos cometidos por el Acertijo, un asesino en serie enmascarado.', '176 min', 'Acción', 'No recomendada para menores de 16 años', '../imagenes/carteles/The Batman.jpg', 'Matt Reeves', 2022, 0);");
+
+        $bdConexion->exec("INSERT INTO sesion (id_pelicula, id_sala, fecha_hora) VALUES
+            (1, 1, '2025-06-11 15:30:00'),
+            (2, 2, '2025-06-11 15:30:00'),
+            (3, 3, '2025-06-11 15:30:00'),
+            (4, 4, '2025-06-11 15:30:00'),
+            (5, 5, '2025-06-11 15:30:00');");
+
+        $passDefecto = password_hash("admin1234", PASSWORD_BCRYPT);
+
+        $bdConexion->exec("INSERT INTO usuario (nombre, apellidos, email, contrasena, telefono, dni, fecha_nacimiento, tipo_usuario) VALUES
+            ('Admin', 'Cine', 'admin@cine.com', '$passDefecto' , 600000000, '00000000A', '1990-01-01', 'admin');");
 
         $bdConexion->commit();
         $bdConexion = null;
