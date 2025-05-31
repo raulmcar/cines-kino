@@ -2,7 +2,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="/cine/index.php">
-            <img src="/cine/imagenes/logo.png" alt="Bootstrap" width="110" height="80">
+            <img src="/cine/imagenes/logoblanco.png" alt="Bootstrap" class="img-fluid" style="max-height: 100px;">
         </a>
         
         <button class="navbar-toggler order-lg-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">

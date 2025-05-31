@@ -4,7 +4,7 @@
       <p class="mb-0 fs-5">© 2025 Cines Kino</p>
 
       <a href="/cine/index.php" class="position-absolute top-50 start-50 translate-middle">
-        <img src="/cine/imagenes/logo.png" alt="Logo" width="110" height="80">
+        <img src="/cine/imagenes/logoblanco.png" alt="Bootstrap" class="img-fluid" style="max-height: 100px;">
       </a>
 
       <ul class="nav">
