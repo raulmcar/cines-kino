@@ -90,5 +90,43 @@
                 return $asientosReserva = [];
             }
         }
+
+        public static function desplegarAllAsientos() {
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM asiento ORDER BY id_asiento ASC");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $asientos = [];
+
+                while ($asiento = $consulta->fetch()) {
+                    $asientos[] = $asiento;
+                }
+
+                return $asientos;
+            } 
+            catch (PDOException $e) {
+                echo "Error al mostrar los asientos: " . $e->getMessage();
+                return [];
+            }
+        }
+
+        public static function eliminarAsiento($id) {
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("DELETE FROM asiento WHERE id_asiento = (?)");
+                $consulta->bindParam(1, $id);
+
+                return $consulta->execute();
+            } 
+            catch (PDOException $e) {
+                echo "Error al eliminar asiento: " . $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>

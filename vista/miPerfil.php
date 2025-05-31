@@ -44,7 +44,6 @@
                 <p class="card-text text-secondary">Teléfono: <?php echo $_SESSION['user']['telefono'] ?></p>
                 <p class="card-text text-secondary">DNI: <?php echo $_SESSION['user']['dni'] ?></p>
                 <p class="card-text text-secondary">Fecha de nacimiento: <?php echo $_SESSION['user']['fecha_nacimiento'] ?></p>
-                <a href="/ruta/editar.php" class="btn btn-outline-primary mt-3">Editar perfil</a>
                 </div>
             </div>
             </div>

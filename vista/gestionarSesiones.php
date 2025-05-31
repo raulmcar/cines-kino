@@ -149,6 +149,8 @@
         </table>
     </div>
 
+    <?php include '../include/footer.php'; ?>
+
     <script>
         document.getElementById('busquedaSesion').addEventListener('input', function() {
             const filtro = this.value.toLowerCase();

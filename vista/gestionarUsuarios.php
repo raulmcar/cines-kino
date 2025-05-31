@@ -139,6 +139,8 @@
         }   
         ?>
 
+    <?php include '../include/footer.php'; ?>
+
     <script>
         document.getElementById('busquedaEmail').addEventListener('keyup', function() {
             const filtro = this.value.toLowerCase();

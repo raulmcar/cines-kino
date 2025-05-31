@@ -43,7 +43,7 @@
 
     <?php $pelis = Pelicula::desplegarPeliculas(); ?>
 
-    <div class="container mt-5">
+    <div class="container mt-5 pb-5">
         <div class="row row-cols-1 row-cols-md-4 g-4">
 
     <?php
@@ -57,7 +57,7 @@
             echo     '<button type="submit" class="p-0 border-0 bg-transparent w-100 shadow-lg position-relative">';
             echo       '<img src="../imagenes/carteles/' . $titulo . '.jpg" alt="' . $titulo . '"';
             echo            'class="w-100 border-radius-lg shadow rounded zoom-img"';
-            echo            'style="height: 300px; object-fit: cover;">';
+            echo            'style="height: 500px; object-fit: cover;">';
             echo       '<div class="overlay-title position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">';
             echo         '<span class="text-white bg-dark bg-opacity-75 px-3 py-2 rounded fw-bold">' . $titulo . '</span>';
             echo       '</div>';

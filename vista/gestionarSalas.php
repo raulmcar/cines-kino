@@ -136,6 +136,8 @@
         </table>
     </div>
 
+    <?php include '../include/footer.php'; ?>
+
     <?php
         if (isset($_SESSION['msg'])) {
             echo "<script>alert('" . $_SESSION['msg'] . "');</script>";

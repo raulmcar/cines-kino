@@ -133,6 +133,27 @@
             (5,7,1),(5,7,2),(5,7,3),(5,7,4),(5,7,5),(5,7,6),(5,7,7),(5,7,8),(5,7,9),(5,7,10),
             (5,8,1),(5,8,2),(5,8,3),(5,8,4),(5,8,5),(5,8,6),(5,8,7),(5,8,8),(5,8,9),(5,8,10);");
 
+        $bdConexion->exec("INSERT INTO pelicula (titulo, sinopsis, duracion, genero, clasificacion, imagen, director, anio, estreno) VALUES
+            ('Dune Parte Dos', 'Paul Atreides se une a los Fremen para vengar a su familia y evitar el terrible futuro que ha previsto.', '166 min', 'Ciencia ficción', '+12', '../imagenes/carteles/Dune Parte Dos.jpg', 'Denis Villeneuve', 2024, 1),
+            ('Godzilla y Kong El Nuevo Imperio', 'Godzilla y Kong se enfrentan a una nueva amenaza colosal bajo la superficie de la Tierra.', '115 min', 'Acción', '+12', '../imagenes/carteles/Godzilla y Kong El Nuevo Imperio.jpg', 'Adam Wingard', 2024, 1),
+            ('El especialista', 'Un especialista de cine se ve envuelto en una trama criminal tras un accidente en el rodaje.', '126 min', 'Comedia', '+16', '../imagenes/carteles/El especialista.jpg', 'David Leitch', 2024, 1),
+            ('Cazafantasmas Imperio Helado', 'La familia Spengler regresa a Nueva York para enfrentarse a una nueva amenaza fantasmal.', '110 min', 'Fantasía', '+7', '../imagenes/carteles/Cazafantasmas Imperio Helado.jpg', 'Gil Kenan', 2024, 1),
+            ('Kung Fu Panda 4', 'Po debe encontrar al próximo Guerrero Dragón mientras enfrenta un nuevo enemigo mágico.', '94 min', 'Animación', 'TP', '../imagenes/carteles/Kung Fu Panda 4.jpg', 'Mike Mitchell', 2024, 1),
+            ('Back to Black', 'La historia de vida de la cantante Amy Winehouse, desde sus inicios hasta su trágico final.', '122 min', 'Biografía', '+16', '../imagenes/carteles/Back to Black.jpg', 'Sam Taylor-Johnson', 2024, 1),
+            ('Oppenheimer', 'La historia de J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.', '180 min', 'Drama', '+16', '../imagenes/carteles/Oppenheimer.jpg', 'Christopher Nolan', 2023, 0),
+            ('Barbie', 'Barbie emprende un viaje en el mundo real tras comenzar a cuestionar su existencia.', '114 min', 'Comedia', 'TP', '../imagenes/carteles/Barbie.jpg', 'Greta Gerwig', 2023, 0),
+            ('Wonka', 'El joven Willy Wonka conoce a los Oompa Loompas y sueña con abrir su propia fábrica de chocolate.', '116 min', 'Aventura', 'TP', '../imagenes/carteles/Wonka.jpg', 'Paul King', 2023, 0),
+            ('Los Juegos del Hambre Balada de Pájaros Cantores y Serpientes', 'Precuela de Los Juegos del Hambre que narra los orígenes del Presidente Snow.', '157 min', 'Acción', '+12', '../imagenes/carteles/Los Juegos del Hambre Balada de Pájaros Cantores y Serpientes.jpg', 'Francis Lawrence', 2023, 0),
+            ('Napoleón', 'Relato épico sobre el ascenso al poder de Napoleón Bonaparte y su relación con Josefina.', '158 min', 'Histórica', '+16', '../imagenes/carteles/Napoleón.jpg', 'Ridley Scott', 2023, 0),
+            ('Elemental', 'Una historia de amor entre elementos opuestos: fuego y agua.', '102 min', 'Animación', 'TP', '../imagenes/carteles/Elemental.jpg', 'Peter Sohn', 2023, 0),
+            ('Super Mario Bros La Película', 'Mario y Luigi deben salvar el Reino Champiñón de Bowser.', '92 min', 'Animación', 'TP', '../imagenes/carteles/Super Mario Bros La Película.jpg', 'Aaron Horvath', 2023, 0),
+            ('The Marvels', 'Carol Danvers, Kamala Khan y Monica Rambeau intercambian poderes y deben colaborar.', '105 min', 'Superhéroes', '+12', '../imagenes/carteles/The Marvels.jpg', 'Nia DaCosta', 2023, 0),
+            ('Five Nights at Freddys', 'Un guardia nocturno descubre que las mascotas animatrónicas de una pizzería cobran vida.', '109 min', 'Terror', '+16', '../imagenes/carteles/Five Nights at Freddys.jpg', 'Emma Tammi', 2023, 0),
+            ('El chico y la garza', 'Un joven entra a un mundo mágico buscando a su madre desaparecida.', '124 min', 'Animación', 'TP', '../imagenes/carteles/El chico y la garza.jpg', 'Hayao Miyazaki', 2023, 0),
+            ('Trolls 3 Todos juntos', 'Los trolls deben salvar a un miembro perdido de su banda.', '91 min', 'Animación', 'TP', '../imagenes/carteles/Trolls 3 Todos juntos.jpg', 'Walt Dohrn', 2023, 0),
+            ('Saw X', 'John Kramer viaja a México para someterse a un tratamiento experimental, pero descubre un fraude.', '118 min', 'Terror', '+18', '../imagenes/carteles/Saw X.jpg', 'Kevin Greutert', 2023, 0),
+            ('The Batman', 'En Gotham City, el vigilante Batman descubre una red de corrupción mientras investiga una serie de asesinatos cometidos por el Acertijo, un asesino en serie enmascarado.', '176 min', 'Acción', 'No recomendada para menores de 16 años', '../imagenes/carteles/The Batman.jpg', 'Matt Reeves', 2022, 0);");
+
         $bdConexion->commit();
         $bdConexion = null;
         echo "Se ha completado la instalación correctamente.";
