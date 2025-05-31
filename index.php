@@ -36,7 +36,8 @@
 <body class="d-flex flex-column min-vh-100">
     <?php include './include/navbar.php'; ?>
 
-    <?php $pelis = Pelicula::desplegarPeliculas(); ?>
+    <?php $pelis = Pelicula::desplegarEstrenos(); ?>
+    
 
     <div class="draggable mt-4">
         <div class="min-vh-75">

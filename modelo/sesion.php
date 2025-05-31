@@ -84,6 +84,52 @@
             }
         }
 
+        public static function desplegarSesiones() {
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT s.id_sesion, p.titulo AS pelicula, sa.nombre AS sala, s.fecha_hora 
+                    FROM sesion s
+                    JOIN pelicula p ON s.id_pelicula = p.id_pelicula
+                    JOIN sala sa ON s.id_sala = sa.id_sala
+                    ORDER BY s.fecha_hora ASC
+                ");
+                $consulta->fetchAll(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $sesiones = [];
+
+                while ($sesion = $consulta->fetch()){
+                    $sesiones[] = $sesion;
+                }
+
+                return $sesiones;
+            } 
+            catch (PDOException $e) {
+                echo "Error al mostrar las sesiones " . $e->getMessage();
+                return $sesiones = [];
+            }
+        }
+
+        public static function eliminarSesion(int $idSesion) {
+            $borrado = false;
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("DELETE FROM sesion WHERE id_sesion = (?)");
+                $consulta->bindParam(1, $idSesion);
+                $consulta->execute();
+
+                $borrado = true;
+                return $borrado;
+            } 
+            catch (PDOException $e) {
+                echo "Error al eliminar sesión: " . $e->getMessage();
+                return $borrado;
+            }
+        }
     }
 
 ?>

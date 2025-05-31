@@ -117,6 +117,29 @@
             }
         }
 
+        public static function desplegarEstrenos(){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT * FROM pelicula WHERE estreno = 1 ORDER BY id_pelicula DESC LIMIT 7");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $pelis = [];
+
+                while ($peli = $consulta->fetch()){
+                    $pelis[] = $peli;
+                }
+
+                return $pelis;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar las peliculas " . $e->getMessage();
+                return $pelis = [];
+        }
+        }
+
         public static function getPeliculaById(int $id_pelicula){
 
             try{
@@ -132,6 +155,48 @@
             }
             catch(PDOException $e){
                 echo "Error al buscar la pelicula " . $e->getMessage();
+            }
+        }
+
+        public static function actualizarPelicula(int $id_pelicula, string $newnombre, int $newduracion, string $newgenero, string $newdirector) {
+            $actualizado = false;
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+
+                $consulta = $bdConexion->prepare("UPDATE pelicula SET titulo = '$newnombre', duracion = '$newduracion',
+                    genero = '$newgenero', director = '$newdirector' WHERE id_pelicula = '$id_pelicula'");
+                $consulta->execute();
+
+                $actualizado = true;
+                return $actualizado;
+                unset($bdConexion);
+            } 
+            catch (PDOException $e) {
+                echo "Ha habido un error al actualizar la película: " . $e->getMessage();
+                return $actualizado;
+            }
+        }
+
+        public static function eliminarPelicula(int $id_pelicula) {
+            $borrado = false;
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("DELETE FROM pelicula WHERE id_pelicula = (?)");
+                $consulta->bindParam(1, $id_pelicula);
+                $consulta->execute();
+
+                $borrado = true;
+                return $borrado;
+
+                unset($bdConexion);
+            } 
+            catch (PDOException $e) {
+                echo "Ha habido un error al eliminar la película: " . $e->getMessage();
+                return $borrado;
             }
         }
     }

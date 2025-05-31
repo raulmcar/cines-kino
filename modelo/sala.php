@@ -84,5 +84,38 @@
                 return $salas = [];
             }
         }
+
+        public static function actualizarSala($idSala, $nuevoNombre) {
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("UPDATE sala SET nombre = (?) WHERE id_sala = (?)");
+                $consulta->bindParam(1, $nuevoNombre);
+                $consulta->bindParam(2, $idSala);
+
+                return $consulta->execute(); 
+            } 
+            catch (PDOException $e) {
+                error_log("Error en actualizarSala: " . $e->getMessage());
+                return false;
+            }
+        }
+
+        public static function eliminarSala($idSala) {
+
+            try {
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("DELETE FROM sala WHERE id_sala = (?)");
+                $consulta->bindParam(1, $idSala);
+
+                return $consulta->execute();
+            } 
+            catch (PDOException $e) {
+                error_log("Error en eliminarSala: " . $e->getMessage());
+                return false;
+            }
+        }
     }
 ?>

@@ -36,7 +36,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title text-center">Añadir peliculas</h5>
                 <p class="card-text text-center">Con esta opción puedes añadir o modificar las peliculas que entren o salgan de la cartelera.</p>
-                <a href="./registrarPelicula.php" class="btn btn-primary">Registrar nueva pelicula</a>
+                <a href="./gestionarPeliculas.php" class="btn btn-primary">Registrar nueva pelicula</a>
             </div>
         </div>
         <div class="card m-2" style="width: 18rem;">
@@ -44,7 +44,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title text-center">Añadir salas</h5>
                 <p class="card-text text-center">Con esta opción puedes añadir o modificar las salas del cine.</p>
-                <a href="./registrarSala.php" class="btn btn-primary mt-4">Registrar nueva sala</a>
+                <a href="./gestionarSalas.php" class="btn btn-primary mt-4">Registrar nueva sala</a>
             </div>
         </div>
         <div class="card m-2" style="width: 18rem;">
@@ -60,7 +60,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title text-center">Crear sesión</h5>
                 <p class="card-text text-center">Con esta opción puedes añadir o modificar las sesiones del cine.</p>
-                <a href="./registrarSesion.php" class="btn btn-primary mt-4">Registrar nueva sesión</a>
+                <a href="./gestionarSesiones.php" class="btn btn-primary mt-4">Registrar nueva sesión</a>
             </div>
         </div>
     </div>
