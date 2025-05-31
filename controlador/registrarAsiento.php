@@ -9,16 +9,16 @@
 
             if ($asiento->registrarAsiento()){
                 $_SESSION['msg'] = "Registro completado";
-                header('Location: ../vista/iniciadoAdmin.php');
+                header('Location: ../vista/gestionarAsientos.php');
                 exit();
             } else {
                 $_SESSION['msg'] = "Ha habido un error al registrar el asiento";
-                header('Location: ../vista/iniciadoAdmin.php');
+                header('Location: ../vista/gestionarAsientos.php');
                 exit();
             }
         } else {
             $_SESSION['msg'] = "Falta alguno de los datos";
-            header('Location: ../vista/registrarAsiento.php');
+            header('Location: ../vista/gestionarAsientos.php');
             exit();
         }
     }

@@ -11,16 +11,16 @@
 
             if ($sesion->registrarSesion()){
                 $_SESSION['msg'] = "La sesion se ha registrado con exito";
-                header('Location: ../vista/iniciadoAdmin.php');
+                header('Location: ../vista/gestionarSesiones.php');
                 exit();
             } else {
                 $_SESSION['msg'] = "Ha habido un error en el registro de la sesión";
-                header('Location: ../vista/iniciadoAdmin.php');
+                header('Location: ../vista/gestionarSesiones.php');
                 exit();
             }
         } else {
             $_SESSION['msg'] = "Falta alguno de los datos";
-            header('Location: ../vista/registrarSesion.php');
+            header('Location: ../vista/gestionarSesiones.php');
             exit();
         }
     }

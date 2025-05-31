@@ -22,6 +22,10 @@
                 header('Location: ../index.php');
                 exit();
             }
+        } else {
+            $_SESSION['msg'] = "Faltan datos para iniciar sesión.";
+            header('Location: ../index.php');
+            exit();
         }
     }
 ?>

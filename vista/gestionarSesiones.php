@@ -67,7 +67,7 @@
             </div>
             <div class="mb-2">
                 <label class="form-label">Fecha de la sesión</label>
-                <input type="datetime-local"  name="fechaSesion" class="form-control">
+                <input type="datetime-local"  id="fechaSesion" name="fechaSesion" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary text-center mt-2">Regsitrar sesion</button>
         </form>
@@ -167,6 +167,30 @@
             });
         });
     </script>    
+
+    <script>
+        const inputFecha = document.getElementById('fechaSesion');
+
+        const ahora = new Date();
+        const año = ahora.getFullYear();
+        const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+        const dia = String(ahora.getDate()).padStart(2, '0');
+        const horas = String(ahora.getHours()).padStart(2, '0');
+        const minutos = String(ahora.getMinutes()).padStart(2, '0');
+        const fechaMin = `${año}-${mes}-${dia}T${horas}:${minutos}`;
+
+        inputFecha.min = fechaMin;
+
+        inputFecha.addEventListener('change', () => {
+            const seleccionada = new Date(inputFecha.value);
+            const ahoraActualizado = new Date();
+
+            if (seleccionada < ahoraActualizado) {
+                alert("No puedes seleccionar una fecha pasada.");
+                inputFecha.value = "";
+            }
+        });
+    </script>
     
     <?php
         if (isset($_SESSION['msg'])) {

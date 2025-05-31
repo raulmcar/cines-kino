@@ -4,13 +4,13 @@
     require_once ('../modelo/sesion.php');
     require_once ('../modelo/pelicula.php');
 
-    $reservas = Reserva::getReservasByIdUser($_SESSION['user']['id_usuario']);
-
     if (!isset($_SESSION['user'])){
         $_SESSION['msg'] = "Necesitas iniciar sesión para entrar aquí.";
         header('Location: ../index.php');
         exit();
     }
+
+    $reservas = Reserva::getReservasByIdUser($_SESSION['user']['id_usuario']);
 ?>
 
 <!DOCTYPE html>

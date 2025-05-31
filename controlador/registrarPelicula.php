@@ -18,22 +18,22 @@
 
             if ($pelicula->comprobarPelicula($_POST['nombrePeli'])) {
                 $_SESSION['msg'] = "La pelicula está ya registrada";
-                header('Location: ../vista/iniciadoAdmin.php');
+                header('Location: ../vista/gestionarPeliculas.php');
                 exit();
             }
 
             if ($pelicula->registrarPelicula()) {
                 $_SESSION['msg'] = "Registro completado";
-                header('Location: ../vista/iniciadoAdmin.php');
+                header('Location: ../vista/gestionarPeliculas.php');
                 exit();
             } else {
                 $_SESSION['msg'] = "Ha habido un error en el registro de la pelicula";
-                header('Location: ../vista/iniciadoAdmin.php');
+                header('Location: ../vista/gestionarPeliculas.php');
                 exit();
             }
         } else {
             $_SESSION['msg'] = "Falta alguno de los datos";
-            header('Location: ../vista/registrarPelicula.php');
+            header('Location: ../vista/gestionarPeliculas.php');
             exit();
         }
     }
