@@ -32,7 +32,7 @@
     }
 
     .carousel-inner img {
-        height: 500px; /* Puedes ajustar esta altura */
+        height: 500px; 
         object-fit: cover;
     }
 </style>
@@ -175,7 +175,6 @@
 
 <div class="container mt-5 mb-5">
     <div class="row g-4 justify-content-around">
-        <!-- Bloque 1 -->
         <div class="col-md-6 p-5">
             <div class="row align-items-center shadow rounded p-4 bg-secondary bg-gradient" style="--bs-bg-opacity: .7; height: 100%;">
                 <div class="col-md-6">
@@ -191,7 +190,6 @@
             </div>
         </div>
 
-        <!-- Bloque 2 -->
         <div class="col-md-6 p-5">
             <div class="row align-items-center shadow rounded p-4 bg-secondary bg-gradient" style="--bs-bg-opacity: .7; height: 100%;">
                 <div class="col-md-6">

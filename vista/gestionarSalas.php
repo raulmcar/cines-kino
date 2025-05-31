@@ -151,7 +151,7 @@
             const filas = document.querySelectorAll('table tbody tr');
 
             filas.forEach(fila => {
-                const nombreSala = fila.cells[1].textContent.toLowerCase(); // columna del nombre
+                const nombreSala = fila.cells[1].textContent.toLowerCase();
                 if (nombreSala.includes(filtro)) {
                     fila.style.display = '';
                 } else {
