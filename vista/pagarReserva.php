@@ -144,6 +144,8 @@
     <?php include '../include/footer.php'; ?>
 
     <script>
+        // Gestiona la selección del método de pago entre tarjeta y PayPal, mostrando el formulario correspondiente, 
+        // ocultando el otro, y ajustando los campos obligatorios según la opción elegida.
         const btnTarjeta = document.getElementById('btnTarjeta');
         const btnPaypal = document.getElementById('btnPaypal');
         const formTarjeta = document.getElementById('formTarjeta');

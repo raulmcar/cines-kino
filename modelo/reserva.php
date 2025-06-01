@@ -1,6 +1,15 @@
 <?php
+    /**
+     * @file Reserva.php
+     * @brief Contiene la clase Reserva para la gestión de reservas en la base de datos.
+     */
+
     require_once('bd.php');
 
+    /**
+     * @class Reserva
+     * @brief Clase que representa una reserva realizada por un usuario para una sesión.
+     */
     class Reserva{
         private ?int $id_reserva;
         private ?int $id_usuario;
@@ -8,6 +17,13 @@
         private float $precio;
         private string $fechaReserva;
 
+        /**
+         * @brief Constructor de la clase Reserva
+         * @param int|null $id_usuario ID del usuario (puede ser null si es anónimo)
+         * @param int $id_sesion ID de la sesión
+         * @param float $precio Precio total de la reserva
+         * @param string $fechaReserva Fecha de la reserva (en formato YYYY-MM-DD)
+         */
         public function __construct(?int $id_usuario, int $id_sesion, float $precio, string $fechaReserva){
             $this->id_reserva = null;
             $this->id_usuario = $id_usuario;
@@ -16,6 +32,9 @@
             $this->fechaReserva = $fechaReserva;
         }
 
+        /**
+         * @brief Destructor de la clase Reserva
+         */
         public function __destruct(){
             $this->id_reserva = null;
             $this->id_usuario = 0;
@@ -24,10 +43,18 @@
             $this->fechaReserva = "";
         }
 
+        /**
+         * @brief Obtiene el ID de la reserva
+         * @return int|null ID de la reserva
+         */
         public function getId(){
             return $this->id_reserva;
         }
 
+        /**
+         * @brief Inserta una nueva reserva en la base de datos
+         * @return bool True si la reserva se creó con éxito, False en caso de error
+         */
         public function crearReserva() {
             $registro = false;
 
@@ -59,6 +86,11 @@
             }
         }
 
+        /**
+         * @brief Obtiene todas las reservas asociadas a un usuario
+         * @param int $id_usuario ID del usuario
+         * @return array Array de reservas asociadas al usuario
+         */
         public static function getReservasByIdUser(int $id_usuario){
 
             try {
@@ -82,6 +114,11 @@
             }
         }
 
+        /**
+         * @brief Obtiene una reserva específica por su ID
+         * @param int $id_reserva ID de la reserva
+         * @return array|null Array asociativo con los datos de la reserva o null si no se encuentra
+         */
         public static function getReservaById(int $id_reserva){
 
             try{

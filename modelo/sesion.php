@@ -1,23 +1,45 @@
 <?php
+    /**
+     * @file Sesion.php
+     * @brief Contiene la clase Sesion para la gestión de sesiones en la base de datos.
+     */
+
     require_once('bd.php');
 
+    /**
+     * @class Sesion
+     * @brief Clase que gestiona las sesiones de películas.
+     */
     class Sesion{
         private int $idPelicula;
         private int $idSala;
         private string $fechaSesion;
 
+        /**
+         * @brief Constructor de la clase Sesion
+         * @param int $idPelicula ID de la película
+         * @param int $idSala ID de la sala
+         * @param string $fechaSesion Fecha y hora de la sesión
+         */
         public function __construct(int $idPelicula, int $idSala, string $fechaSesion){
             $this->idPelicula = $idPelicula;
             $this->idSala = $idSala;
             $this->fechaSesion = $fechaSesion;
         }
 
+        /**
+         * @brief Destructor de la clase Sesion
+         */
         public function __destruct(){
             $this->idPelicula = 0;
             $this->idSala = 0;
             $this->fechaSesion = "";
         }
 
+        /**
+         * @brief Registra una nueva sesión en la base de datos
+         * @return bool True si se registró correctamente, false en caso contrario
+         */
         public function registrarSesion(){
             $registro = false;
 
@@ -43,6 +65,12 @@
             }
         }
 
+        /**
+         * @brief Obtiene las sesiones por ID de película y fecha
+         * @param int $id_pelicula ID de la película
+         * @param string $fecha Fecha (formato YYYY-MM-DD)
+         * @return array Lista de sesiones
+         */
         public static function getSesionesById(int $id_pelicula, string $fecha){
             
             try{
@@ -66,6 +94,11 @@
             }
         }
 
+        /**
+         * @brief Obtiene los datos de una sesión por su ID
+         * @param int $id_sesion ID de la sesión
+         * @return mixed Datos de la sesión o null
+         */
         public static function getDatosSesion(int $id_sesion){
             
             try{
@@ -84,6 +117,10 @@
             }
         }
 
+        /**
+         * @brief Muestra todas las sesiones registradas con información de película y sala
+         * @return array Lista de sesiones
+         */
         public static function desplegarSesiones() {
 
             try {
@@ -112,6 +149,11 @@
             }
         }
 
+        /**
+         * @brief Elimina una sesión por su ID
+         * @param int $idSesion ID de la sesión a eliminar
+         * @return bool True si se eliminó correctamente, false en caso de error
+         */
         public static function eliminarSesion(int $idSesion) {
             $borrado = false;
 

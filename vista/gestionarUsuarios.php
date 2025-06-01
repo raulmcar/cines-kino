@@ -143,6 +143,7 @@
     
 
     <script>
+        // Filtra en tiempo real las filas de una tabla mostrando solo las que contienen el texto ingresado en el campo de búsqueda del email.
         document.getElementById('busquedaEmail').addEventListener('keyup', function() {
             const filtro = this.value.toLowerCase();
             const filas = document.querySelectorAll('table tbody tr');

@@ -59,6 +59,7 @@
     </div>
 
     <script>
+        // Durante 5 segundos muestra el bloque de "estadoCompra" y luego pasa al resumen.
         setTimeout(() => {
             document.getElementById('estadoCompra').style.display = 'none';
             document.getElementById('resumenCompra').style.display = 'block';

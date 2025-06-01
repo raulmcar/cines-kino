@@ -3,7 +3,7 @@
 
     use Mpdf\Mpdf;
 
-    function generarEntradaPDF($datos, $ruta_pdf){
+    function generarEntradaPDFMailer($datos, $ruta_pdf){
         $html = '
             <html>
             <head>

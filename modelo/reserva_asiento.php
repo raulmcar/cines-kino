@@ -1,20 +1,40 @@
 <?php
+    /**
+     * @file Reserva_asiento.php
+     * @brief Contiene la clase Reserva para la gestión de reservas de los asientos en la base de datos.
+     */
     require_once('bd.php');
 
+    /**
+     * @class ReservaAsiento
+     * @brief Clase que representa la relación entre una reserva y los asientos reservados.
+     */
     class ReservaAsiento{
         private int $id_reserva;
         private int $id_asiento;
 
+        /**
+         * @brief Constructor de la clase ReservaAsiento
+         * @param int $id_reserva ID de la reserva
+         * @param int $id_asiento ID del asiento reservado
+         */
         public function __construct(int $id_reserva, int $id_asiento){
             $this->id_reserva = $id_reserva;
             $this->id_asiento = $id_asiento;
         }
 
+        /**
+         * @brief Destructor de la clase ReservaAsiento
+         */
         public function __destruct(){
             $this->id_reserva = 0;
             $this->id_asiento = 0;
         }
 
+        /**
+         * @brief Inserta una relación entre una reserva y un asiento en la base de datos
+         * @return bool True si se insertó correctamente, False si ocurrió un error
+         */
         public function crearReservaAsiento(){
             $registro = false;
 
@@ -37,6 +57,11 @@
             }
         }
 
+        /**
+         * @brief Obtiene los asientos ocupados en una sesión específica
+         * @param int $id_sesion ID de la sesión
+         * @return array Array de asientos reservados (solo los ID)
+         */
         public static function obtenerAsientosOcupados(int $id_sesion){
 
             try{
@@ -65,6 +90,11 @@
             }
         }
 
+        /**
+         * @brief Obtiene los datos (fila y número) de los asientos asociados a una reserva
+         * @param int $id_reserva ID de la reserva
+         * @return array Array de asientos con fila y número
+         */
         public static function getAsientosByReserva(int $id_reserva){
 
             try{

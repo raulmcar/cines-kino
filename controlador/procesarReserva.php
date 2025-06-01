@@ -55,9 +55,9 @@
                     'asientosElegidos' => $_SESSION['asientosElegidos']
                 ];
 
-                $ruta_pdf = '../pdfMailer/entrada_cine.pdf';
+                $ruta_pdf = '../servicios/entrada_cine.pdf';
 
-                generarEntradaPDF($datosReserva, $ruta_pdf);
+                generarEntradaPDFMailer($datosReserva, $ruta_pdf);
                 enviarEntradaCorreoInvitado($ruta_pdf, $correoInvitado);
                 unlink($ruta_pdf);
 

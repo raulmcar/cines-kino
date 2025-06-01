@@ -169,6 +169,8 @@
     </script>    
 
     <script>
+        // Establece la fecha y hora mínima seleccionable en un input tipo datetime-local a la fecha y hora actual, y 
+        // evita que el usuario seleccione una fecha pasada mostrando una alerta y limpiando el campo.
         const inputFecha = document.getElementById('fechaSesion');
 
         const ahora = new Date();

@@ -51,18 +51,22 @@
             <?php
                 $asientosPorFila = [];
 
+                // Agrupa los asientos según la fila a la que pertenecen
                 foreach ($asientos as $asiento) {
                     $asientosPorFila[$asiento['fila']][] = $asiento;
                 }
 
+                // Recorremos cada fila con sus asientos agrupados
                 foreach ($asientosPorFila as $fila => $asientosFila) {
                     echo "<div class='d-flex align-items-center mb-2'>";
                     echo "<div class='me-2 text-warning fw-bold' style='width: 60px;'>Fila $fila</div>";
 
+                    // Recorremos todos los asientos de la fila actual
                     foreach ($asientosFila as $asiento) {
                         $id = $asiento['id_asiento'];
                         $ocupado = false;
 
+                        // Comprobamos si este asiento está en la lista de asientos ocupados y si lo está se pone en disabled
                         foreach ($asientosOcupados as $ocupadoId) {
                             if ($id == $ocupadoId['id_asiento']) {
                                 $ocupado = true;
@@ -100,6 +104,8 @@
     <?php include '../include/footer.php'; ?>
 
     <script>
+        // Controla que el usuario no pueda seleccionar más de 5 asientos (checkboxes) en la página. 
+        // Si intenta seleccionar más, desmarca la última opción y muestra una alerta.
         let maxAsientos = 5;
         let checkboxes = document.querySelectorAll('input[type="checkbox"]');
         let selectedCount = 0;
@@ -117,6 +123,7 @@
     </script>
 
     <script>
+        // Controla que el usuario tenga seleccionado al menos un asiento cuando le da al botón submit del formulario.
         document.getElementById("formReservarAsientos").addEventListener("submit", function(event) {
             var asientosSeleccionados = document.querySelectorAll('input[name="asientosReservados[]"]:checked');
 
