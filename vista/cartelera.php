@@ -49,7 +49,7 @@
     <?php
         for ($i = 0; $i < count($pelis); $i++) {
             $id = $pelis[$i]['id_pelicula'];
-            $titulo = htmlspecialchars($pelis[$i]['titulo']);
+            $titulo = $pelis[$i]['titulo'];
 
             echo '<div class="col">';
             echo    '<form method="POST" action="./verPelicula.php" class="mt-0">';

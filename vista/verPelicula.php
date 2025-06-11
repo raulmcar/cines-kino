@@ -38,7 +38,7 @@
 
                 <ul class="list-unstyled">
                     <li><strong>Duración:</strong> <?php echo $_SESSION['peliculaElegida']['duracion'] ?> </li>
-                    <li><strong>Clasificación:</strong> +<?php echo $_SESSION['peliculaElegida']['clasificacion'] ?></li>
+                    <li><strong>Clasificación:</strong> <?php echo $_SESSION['peliculaElegida']['clasificacion'] ?></li>
                     <li><strong>Género:</strong> <?php echo $_SESSION['peliculaElegida']['genero'] ?></li>
                     <li><strong>Director:</strong> <?php echo $_SESSION['peliculaElegida']['director'] ?></li>
                     <li><strong>Año:</strong> <?php echo $_SESSION['peliculaElegida']['anio'] ?></li>
