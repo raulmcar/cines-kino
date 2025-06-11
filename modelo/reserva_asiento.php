@@ -67,8 +67,11 @@
             try{
                 $pdo = new BD();
                 $bdConexion = $pdo->getPDO();
+                // Se une la tabla reserva_asiento con reserva para relacionar que asientos tiene la reserva
+                // Se cogen los datos de los asientos de los asientos relacionados 
+                // Se utiliza como parametro referencia para comprobar esa sesión en concreto
                 $consulta = $bdConexion->prepare("SELECT a.id_asiento FROM reserva_asiento AS ra
-                    INNER JOIN reserva AS r ON ra.id_reserva = r.id_reserva
+                    INNER JOIN reserva AS r ON ra.id_reserva = r.id_reserva 
                     INNER JOIN asiento AS a ON ra.id_asiento = a.id_asiento
                     WHERE r.id_sesion = (?)");
                 
