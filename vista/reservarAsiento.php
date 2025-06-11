@@ -51,17 +51,17 @@
             <?php
                 $asientosPorFila = [];
 
-                // Agrupa los asientos según la fila a la que pertenecen
+                // Agrupa los asientos según la fila a la que pertenecen y crea un array indexado donde el index es la fila.
                 foreach ($asientos as $asiento) {
                     $asientosPorFila[$asiento['fila']][] = $asiento;
                 }
 
-                // Recorremos cada fila con sus asientos agrupados
+                // Por cada fila los agrupo con todos sus datos en una unica fila y mostramos el numero de la fila
                 foreach ($asientosPorFila as $fila => $asientosFila) {
                     echo "<div class='d-flex align-items-center mb-2'>";
                     echo "<div class='me-2 text-warning fw-bold' style='width: 60px;'>Fila $fila</div>";
 
-                    // Recorremos todos los asientos de la fila actual
+                    // Recorremos todos los asientos de la fila actual y los inicializamos en false
                     foreach ($asientosFila as $asiento) {
                         $id = $asiento['id_asiento'];
                         $ocupado = false;
@@ -105,6 +105,7 @@
 
     <script>
         // Controla que el usuario no pueda seleccionar más de 5 asientos (checkboxes) en la página. 
+        // Con la propiedad checked se verifica si el checkbox esta seleccionado y se cuentan.
         // Si intenta seleccionar más, desmarca la última opción y muestra una alerta.
         let maxAsientos = 5;
         let checkboxes = document.querySelectorAll('input[type="checkbox"]');
