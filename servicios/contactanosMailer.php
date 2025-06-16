@@ -12,7 +12,7 @@
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'cineskino@gmail.com';
-            $mail->Password   = 'gzaw xipa yohb vvpr';
+            $mail->Password   = '';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
